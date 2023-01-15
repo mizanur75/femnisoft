@@ -1,0 +1,160 @@
+html, body {
+	background-image:url(../u.png);
+	background-color: #c9c9c9;
+	font-weight: 200;
+	height: 100vh;
+	margin: 0;
+	background-repeat: no-repeat;
+}
+.title {
+	font-size: 37px;
+	font: italic bold 30px/30px Georgia, serif;
+	color: red;
+}
+.contact{
+	font-weight: bold;
+	color: #ffff;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #1e6b03;
+	padding: 5px;
+}
+.right{
+	font-weight: bold;
+	color: #272525;
+	margin-top: 42%;
+	text-align: center;
+	padding: 5px;
+
+}
+.input{
+	padding: 5px;
+	text-shadow: red;
+	border-radius: 3px;
+	line-height: 1px;
+}
+.input:hover{
+	border-color:#00D96C;
+}
+
+.error{
+	color: #F00;
+	font: italic 16px Georgia, serif;
+	margin-left: 5px;
+}
+
+.login{
+	padding: 5px;
+	color: white;
+	cursor: pointer;
+	background-color: #4466A0;
+	line-height: 12px;
+}
+
+.div-login{
+	 float: right;
+	 padding-right: 1px;
+	 box-sizing: border-box;
+}
+.body{
+	
+	margin-top: 30%;
+	margin-left: 55%;
+	position:absolute;
+}
+.text-danger{
+	color: #F00;
+}
+
+@media screen and (max-width: 600px) {
+	html, body {
+		background-image: none;
+	}
+	.right{
+		font-weight: bold;
+		color: #272525;
+		margin-top: 80%;
+		text-align: center;
+		padding: 5px;
+	}
+  .body {
+  	background-image:url(../u.png);
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position:absolute;
+  }
+  .mobile{
+  	margin-top: 50%;
+	margin-left: 11px;
+	margin-right: 11px;
+  }
+  input.email{
+  	width: 50%;
+  }
+  input.pass{
+  	width: 50%;
+  	float: right;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 768px) {
+	html, body {
+		background-image: none;
+	}
+	.right{
+		font-weight: bold;
+		color: #272525;
+		margin-top: 80%;
+		text-align: center;
+		padding: 5px;
+	}
+  .body {
+  	background-image:url(../u.png);
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position:absolute;
+  }
+  .mobile{
+  	margin-top: 50%;
+	margin-left: 11px;
+	margin-right: 11px;
+  }
+  input.email{
+  	width: 50%;
+  }
+  input.pass{
+  	width: 50%;
+  	float: right;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+	html, body {
+		background-image: none;
+	}
+
+  .body {
+  	background-image:url(../u.png);
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: 100%;
+  }
+  .mobile{
+  	margin-top: 35%;
+	margin-left: 55%;
+	margin-right: 40px;
+  }
+  .login{
+  	margin-right: 32px;
+  }
+}

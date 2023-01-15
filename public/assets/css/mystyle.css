@@ -1,0 +1,221 @@
+.form-group{
+    margin-bottom: 1rem;
+}
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.2em;
+}
+.page-link{
+    padding: .2rem .5rem;
+    line-height: 1;
+}
+.btn {
+    margin-bottom: 0px;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.widget-area-2 {
+    margin-top: .5rem;
+    padding: 10px;
+}
+.navbar {
+    padding: 5px 15px;
+}
+.block-title {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1rem;
+    font-size: .8rem;
+    line-height: 1.5;
+}
+h3.block-title {
+    background: transparent;
+    margin: 4px 7px auto;
+    color: #E7F3ED;
+}
+.breadcrumb {
+    padding: .3rem .8rem;
+}
+.select-file{
+    height: 40px;
+    padding-top: 5px !important;
+}
+.form-control-width{
+    width: 100%;
+}
+div[class*="col-print"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0.5em;
+    display: inline-block;
+    width: auto;
+    height: 30px;
+}
+.pres-row{
+    margin-right: 2px;
+    margin-left: 3px;
+}
+.patient{
+    border-right: 1px solid #2b6749 !important;
+}
+.col-pres{
+    padding-right: 11px;
+    padding-left: 11px;
+}
+.pres{
+    padding: 10px 24px;
+    margin: 14px 0px;
+}
+.patient-info{
+    padding: 5px 0px 5px 0px;
+    border-top: 1px solid #2b6749;
+    border-bottom: 1px solid #2b6749 !important;
+}
+.form-control {
+    border-color: #8c8282;
+}
+.footer-font{
+    font-size: 15px;
+}
+.name{
+    padding-top: 5px;
+}
+.image-fluid{
+    height: 50px;
+    margin-bottom: 5px;
+}
+.red{
+    color: red;
+}
+.activated{
+	background-color: #96eabf !important;
+}
+.container {
+    max-width: 100%;
+}
+.radius{
+	border-radius: 50%;
+	border: 1px solid;
+	padding: 17px;
+}
+.error{
+	color: red;
+	font-weight: bold;
+}
+.nav-link {
+    display: block;
+    padding: 0;
+    font-family: Verdana, Arial, Tahoma, Serif;
+}
+.dropdown-item{
+	padding: 1px 15px;
+}
+.menu-nav .dropdown-menu a {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: rgba(0,0,0,.7);
+    font-weight: 600;
+}
+.breadcrumb-bar {
+	padding: 0px 12px;
+}
+
+.widget-area {
+    background: #fff;
+    border-radius: 2px;
+    border: 2px solid;
+}
+.form-control-sm, .input-group-sm>.form-control, .input-group-sm>.input-group-append>.btn, .input-group-sm>.input-group-append>.input-group-text, .input-group-sm>.input-group-prepend>.btn, .input-group-sm>.input-group-prepend>.input-group-text {
+    padding: .0rem 0.3rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+.btn-padding{
+	padding: 1px 5px;
+}
+.bootstrap-select.btn-group .dropdown-menu a.dropdown-item span.dropdown-item-inner span.text {
+    display: inline-block;
+    color: black;
+}
+.bootstrap-select.btn-group[class*="col-"] .dropdown-toggle {
+    width: 100%;
+    border: 1px solid #b3b3b3;
+    border-radius: 2px;
+}
+.notifications .dropdown-item, .profile .dropdown-item {
+    font-size: 13px;
+    padding: 5px 15px;
+    color: #888;
+    border-bottom: 1px solid #fafafa;
+}
+.modal-content {
+    border-radius: 5px;
+}
+@media print {
+    body * {
+    visibility: hidden;
+    }
+    #printarea, #printarea * {
+    visibility: visible;
+    }
+    #printarea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    }
+}
+.none{
+	display: none;
+}
+
+.bootstrap-select.btn-group > .dropdown-toggle {
+    height: 35px;
+}
+@media (max-width: 768px){
+	.col-sm4{
+		width: 40%;
+	}
+	.col-sm2{
+		width: 20%;
+	}
+    .col-sm6 h4{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .col-sm6 span{
+        font-size: 12px;
+    }
+    .col-sm6{
+        width: 50%;
+    }
+    .text-md-right{
+        text-align: right;
+    }
+    .col-pr{
+        width: 100%
+    }
+    .ml-3, .mx-3 {
+        margin-left: 0px !important;
+    }
+    .pres{
+        padding: 13px 9px;
+        margin: 0px 0px 0px 13px;
+    }
+    div[class*="col-print"] {
+        padding-right: 0px;
+        padding-left: 14px;
+    }
+    .pres-row{
+        margin-right: 0px;
+        margin-left: -14px;
+    }
+    .patient{
+        border-right: 0px solid #2b6749 !important;
+    }
+    .col-sm12{
+        width: 100%;
+    }
+}

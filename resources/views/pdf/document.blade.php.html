@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="tyK8G7WaOfjsDqoSNQTVo8QlmJ2L6njd28z2eLq2">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Prescription of sss</title>
+
+	
+	<!-- Fav  Icon Link -->
+	<link rel="shortcut icon" type="image/png" href="http://127.0.0.1:8011/assets/images/fav.png">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/fonts/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://127.0.0.1:8011/fontawesome/css/all.css">
+	<!-- themify icons CSS -->
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/themify-icons.css">
+	<!-- Animations CSS -->
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/animate.css">
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/styles.css">
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/green.css" id="style_theme">
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/responsive.css">
+	<!-- morris charts -->
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/charts/css/morris.css">
+	<!-- jvectormap -->
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/jquery-jvectormap.css">
+
+	<script src="http://127.0.0.1:8011/assets/js/modernizr.min.js"></script>
+
+	<style>
+		
+		.translated-ltr{
+			margin-top: -40px;
+		}
+		.goog-te-banner-frame{
+			display: none;
+			/* margin-top: -20px; */
+		}
+		.goog-logo-link{
+			display: none !important;
+		}
+		.goog-te-gadget{
+			color: transparent !important;
+		}
+		blink {
+		  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+		  animation: 2s linear infinite condemned_blink_effect;
+		  color: red;
+		  font-weight: bold;
+		}
+		.blinking{
+		    animation:blinkingText 1.2s infinite;
+		}
+		@keyframes  blinkingText{
+		    0%{     color: #ff0000;    }
+		    49%{    color: #ff0000; }
+		    60%{    color: transparent; }
+		    99%{    color:transparent;  }
+		    100%{   color: #ff0000;    }
+		}
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">	<style>
+table tr td{
+	border: none !important;
+}
+div[class*="col-"] {
+    padding-right: 10px;
+    padding-left: 11px;
+}
+p {
+    font-size: 1em;
+    line-height: 1.2em;
+    color: #666;
+    letter-spacing: .3px;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+}
+hr {
+    margin-top: 3px; 
+    margin-bottom: 3px; 
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.doctor{
+	font-size: large;
+}
+
+@media (min-width: 769px){
+	div[class*="col-print"] {
+	    padding-right: 5px;
+	    padding-left: 5px;
+	}
+}
+@media (max-width: 768px){
+	.pl-2{
+	    padding-right: 0px;
+	    
+	}
+	.pr-2{
+		padding-left: 0px;
+	}
+}
+</style>
+	<link rel="stylesheet" href="http://127.0.0.1:8011/assets/css/mystyle.css">
+</head>
+
+<body>
+	<audio id="notify">
+	  <source src="http://127.0.0.1:8011/audio/notify.ogg" type="audio/ogg">
+	  <source src="http://127.0.0.1:8011/audio/notify.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+	<audio id="call">
+	  <source src="http://127.0.0.1:8011/audio/calling.ogg" type="audio/ogg">
+	  <source src="http://127.0.0.1:8011/audio/calling.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+			<!-- Pre Loader -->
+	<div class="loading">
+		<div class="spinner">
+			<div class="double-bounce1"></div>
+			<div class="double-bounce2"></div>
+		</div>
+	</div>
+	<!--/Pre Loader -->
+	<div class="wrapper">
+		<!-- Page Content -->
+		<div id="content">
+							<div class="container top-brand">
+    <nav class="navbar navbar-default">			
+        <div class="navbar-header">
+            <div class="sidebar-header"> <a href="http://127.0.0.1:8011/agent/dashboard"><img src="http://127.0.0.1:8011/assets/images/logo-dark.png" class="logo" alt="logo" style="height: 50px; width: 76%;"></a>
+                <h3 style="font-size: 15px; font-weight: bold; color: #e87e31; margin-left: 9px;">Ekhlaspur Center of Health</h3>
+            </div>
+        </div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link">
+                    <span title="Fullscreen" id="google_translate_element"></span>
+                </a>							
+            </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle bg-red" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="ti-user" style="background-color: red; color: white;font-weight: bold;"></span>
+                </a>
+                <div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
+                    <h5>Agent</h5>
+                    <a class="dropdown-item" href="#">
+                        <span class="ti-settings"></span> Settings</a>
+                    <a class="dropdown-item" href="http://devmizanur.com" target="_blank">
+                        <span class="ti-help-alt"></span> Help</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:8011/logout"onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();" >
+                        <span class="ti-power-off"></span> Logout</a>
+                        <form id="logout-form" action="http://127.0.0.1:8011/logout" method="POST" style="display: none;">
+                            <input type="hidden" name="_token" value="tyK8G7WaOfjsDqoSNQTVo8QlmJ2L6njd28z2eLq2">                        </form>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+</div>
+<!-- /Top Navigation -->
+<!-- Menu -->
+<div class="container menu-nav">
+    <nav class="navbar navbar-expand-lg proclinic-bg text-white">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="ti-menu text-white"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link" href="http://127.0.0.1:8011/agent/dashboard">
+                    <span class="ti-home"></span> Dashboard</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link" href="http://127.0.0.1:8011/agent/doctor"><i class="fa fa-user-md"></i> Doctors</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wheelchair"></i> Patients</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://127.0.0.1:8011/agent/patient/create">Add Patient</a>
+                        <a class="dropdown-item" href="http://127.0.0.1:8011/agent/patient">All Patients</a>
+                        <a class="dropdown-item" href="http://127.0.0.1:8011/agent/patient-my">My Patients</a>
+                    </div>
+                </li>
+                <!-- <li class="nav-item dropdown ">
+                    <a class="nav-link" href="http://127.0.0.1:8011/agent/pharmacy-list"><i class="fas fa-store-alt"></i> Pharmacy</a>
+                </li> -->
+                <li class="nav-item dropdown ">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        aria-expanded="false"><i class="fa fa-stethoscope"></i> Appointments                                                     <span class="badge badge-danger" style="border-radius: 50%;">4</span>
+                                                
+                    </a>
+                    <div class="dropdown-menu">
+                                                                        <a class="dropdown-item" href="http://127.0.0.1:8011/agent/appoint-today/27-07-2020">Today's Appoint
+                                                    </a>
+                        <a class="dropdown-item" href="http://127.0.0.1:8011/agent/appointment">
+                            All Appoint 
+                                                        <span class="badge badge-danger" style="border-radius: 50%;">4</span>
+                                                    </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        aria-expanded="false"><i class="ti-receipt"></i> Prescription
+                        
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://127.0.0.1:8011/agent/prescription-today/2020-07-27">Today's Prescription
+                        </a>
+                        <a class="dropdown-item" href="http://127.0.0.1:8011/agent/prescription-all">
+                            All Prescription
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link" href="http://127.0.0.1:8011/agent/test"><i class="fas fa-vials"></i> Test</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link" href="http://127.0.0.1:8011/agent/advice"><i class="fas fa-puzzle-piece"></i> Advice</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- /Menu -->						<!-- Breadcrumb -->
+
+			<div class="container mt-0">
+				<div class="row breadcrumb-bar">
+					<div class="col-md-6">
+						<h3 class="block-title">Prescription of sss</h3>
+					</div>
+					<div class="col-md-6">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="index.html">
+									<span class="ti-home"></span>
+								</a>
+							</li>
+							<li class="breadcrumb-item active">Prescription of sss</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+			<!-- Main Content -->
+			<div class="container home" style="min-height: 400px;">
+
+				<div class="row">
+	<div class="col-md-12 col-print">
+		<div class="widget-area-2 text-right pt-2">
+			<a href="http://127.0.0.1:8011/agent/patient/pdf/8" target="_blank" class="btn btn-padding btn-sm btn-success"><i class="fa fa-shopping-cart"></i>	Download</a>
+			<button type="button" id="print" class="btn btn-padding btn-sm btn-success"><i class="fa fa-print"></i> Print</button>
+		</div>
+	</div>
+</div>
+
+<div class="row pres-row">
+	<div class="col-sm-12 col-md-12 bg-white mt-3 pres col-pres" id="printarea">
+		<div class="row mb-1">
+			<div class="col-md-4">
+				<h3 class="color-green font-weight-bold" style="margin-top: 51px; margin-bottom: -1px;">এখলাসপুর সেন্টার অফ হেলথ</h3>
+				<span><strong>এখলাসপুর, মতলব উত্তর, চাঁদপুর ৩৬৪১</strong></span>
+			</div>
+			<div class="col-md-3">
+			<img src="http://127.0.0.1:8011/assets/images/logo-dark.png" class="logo" alt="logo" style="width: 100%; margin-top: 25px; height: 90px;">
+			</div>
+			<div class="col-md-5">
+				<div class="row">
+					<div class="col-md-5">
+						<img src="http://127.0.0.1:8011/images/patient/sss-5f094a75ae06b.png" class="logo" alt="logo" style="height: 155px; width: 100%; border: 1px solid #2b6749;">
+					</div>
+					<div class="col-md-7">
+						<table>
+							<tr>
+								<th>Name</th>
+								<td><b>:</b> Md Mizanur Rahman</td>
+							</tr>
+							<tr>
+								<th>Age</th>
+								<td><b>:</b> 26</td>
+							</tr>
+							<tr>
+								<th>Sex</th>
+								<td><b>:</b> Male</td>
+							</tr>
+							<tr>
+								<th>Address</th>
+								<td><b>:</b> sss</td>
+							</tr>
+							<tr>
+								<th>ECOH ID</th>
+								<td><b>:</b> 23232</td>
+							</tr>
+							<tr>
+								<th>Date</th>
+								<td><b>:</b> 16 Jul 2020</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="border-top: 1px solid #2b6749; min-height: 700px;">
+			<div class="col-sm-3 patient">
+				<b>On Examination</b>:
+				<hr>
+				<table>
+					<tr>
+						<td>BP </td>
+						<td><b>:</b> 44 mm of Hg</td>
+					</tr>
+					<tr>
+						<td>Pulse </td>
+						<td><b>:</b> 44/min</td>
+					</tr>
+					<tr>
+						<td>Temp. </td>
+						<td><b>:</b> 44°F</td>
+					</tr>
+					<tr>
+						<td>Weight </td>
+						<td><b>:</b> 44kg</td>
+					</tr>
+					<tr>
+						<td>Height </td>
+						<td><b>:</b> 44cm</td>
+					</tr>
+					<tr>
+						<td>O<sub>2</sub> Satu. </td>
+						<td><b>:</b> 44%</td>
+					</tr>
+				</table>
+								<div class="row mb-2 mr-2">
+					<div class="col-sm-12 col-md-12">
+						<strong>Chief Complaints:</strong> <hr>
+					</div>
+				</div>
+				<div class="row mb-2 mr-2">
+					<div class="col-sm-12 col-md-12">
+						<strong>Investigation Find:</strong><hr> 
+																																				    								    								    									X-Ray: <span class="text-danger">Not Added Yet</span> <br>
+    								    																														    								    								    									ECG: <span class="text-danger">Not Added Yet</span> <br>
+    								    																									</div>
+				</div>
+				<div class="row mb-2 mr-2">
+					<div class="col-sm-12 col-md-12">
+						<strong>Diagnosis:</strong><hr> ffff
+					</div>
+				</div>
+							</div>
+
+			<div class="col-sm-8 ml-3" style="min-height:400px; font-size:1em; margin-top:20px;">
+				<h3>R<span style="font-size:12px;">x</span></h3>
+				<div>
+					<table class="table table-sm">
+												<tr>
+							<td></td>
+							<td>
+								<span class="doctor"> 
+									1. 
+																											Cap.
+																	</span>
+							</td>
+							<td><span class="doctor"> Xeldrin - 20 mg</span></td>
+							<td></td>
+							<td><span class="doctor"> ২ মাস</span></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><span class="doctor"> সকালে + দুপুরে</span></td>
+							<td><span class="doctor"> 
+																২
+																টি করে খাবার ৩০ মি. আগে</span></td>
+							<td></td>
+						</tr>
+											</table>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<div class="row mt-2 mb-2">
+					<div class="col-sm-9 col-md-8">
+						<h6 class="font-weight-bold">উপদেশঃ</h6>
+						<hr>
+																				<ul>
+														<li>প্রতিদিন তাজা দেশী ফল ও শাক-সবজি খাবেন ।</li>
+														<li>চিনি ও চিনি জাতীয় খাবার কম খাবেন, নিয়মিত হাঁটবেন ।</li>
+														<li>কাঁচা লবণ খাবেন না। </li>
+																			</ul>
+
+					</div>
+					<div class="col-sm-3 col-md-4">
+						<h6>Electronic Signature</h6>
+						<hr>
+						<img src="http://127.0.0.1:8011/images/signature/3-5f09588062111.png" style="height: 70px;">
+						<h5 class="font-weight-bold" style="margin-bottom: 0px;">Doctor</h5>
+						<span>MBBS</span><br>
+						<span>Specialist in Medicine</span><br>
+						<span>BM&DC Reg. No: 45456345</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row text-center" style="border-top:1px solid #2b6749; padding:5px; text-align: center !important;">
+			<div class="col-sm-12 col-print text-center"> <span class="font-weight-bold"> ২ মাস </span> পর আসবেন। পরবর্তী ভিজিটের সময় অবশ্যই ব্যবস্থাপত্র সাথে আনবেন। ধন্যবাদ।
+			</div>
+		</div>
+		<div class="row" style="border-top:1px solid #2b6749;padding:5px;">
+			<div class="col-sm-12 col-print text-center" style="padding: 0px 0px 10px 0px;">
+				Mobile: 01766020707 | Email: chandpurecoh3641@gmail.com | Website: www.ecohbd.org <br> Developed & Maintenance by <a href="https://devmizanur.com" target="_blank"> www.devmizanur.com</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+			</div>
+			<!-- /Main Content -->
+			<!--Copy Rights-->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="widget-area-2 proclinic-box-shadow pb-3 text-center pt-3">
+							  <span class="text-center">Copyright <strong>©</strong> 2020 <a href="http://www.devmizanur.com/" class="font-weight-bold" target="_blank">www.devmizanur.com</a>. All rights reserved.</span>
+							  <!-- <button onclick="playNotify()" type="button">Play Notify</button>
+							  <button onclick="pauseNotify()" type="button">Pause Notify</button>
+							  <button onclick="playCall()" type="button">Play Calling</button>
+							  <button onclick="pauseCall()" type="button">Pause Calling</button> --> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Copy Rights-->
+		</div>
+		<!-- /Page Content -->
+	</div>
+	<!-- Back to Top -->
+	<a id="back-to-top" href="#" class="back-to-top">
+		<span class="ti-angle-up"></span>
+	</a>
+	<!-- /Back to Top -->
+	<!-- Jquery Library-->
+	<script src="http://127.0.0.1:8011/assets/js/jquery-3.2.1.min.js"></script>
+	<!-- Popper Library-->
+	<script src="http://127.0.0.1:8011/assets/js/popper.min.js"></script>
+	<!-- Bootstrap Library-->
+	<script src="http://127.0.0.1:8011/assets/js/bootstrap.min.js"></script>
+	<!-- morris charts -->
+	<script src="http://127.0.0.1:8011/assets/charts/js/raphael-min.js"></script>
+	<script src="http://127.0.0.1:8011/assets/charts/js/morris.min.js"></script>
+	<script src="http://127.0.0.1:8011/assets/js/custom-morris.js"></script>
+
+</body>
+
+</html>
+

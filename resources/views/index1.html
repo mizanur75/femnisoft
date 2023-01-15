@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="PqwhvFP9V1uDZLFZd9MLOgpDp41Di7V9AsCAN2ib">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Write Prescription</title>
+    <!-- Fav  Icon Link -->
+    <link rel="shortcut icon" type="image/png" href="http://doctor.devmizanur.com/assets/images/fav.png">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/fonts/css/font-awesome.min.css">
+    <!-- themify icons CSS -->
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/css/themify-icons.css">
+    <!-- Animations CSS -->
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/css/animate.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/css/styles.css">
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/css/green.css" id="style_theme">
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/css/responsive.css">
+    <!-- morris charts -->
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/charts/css/morris.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="http://doctor.devmizanur.com/assets/css/jquery-jvectormap.css">
+
+    <script src="http://doctor.devmizanur.com/assets/js/modernizr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">    <style>
+.phide{
+    display: none;
+}
+.pshow{
+    display: block;
+}
+.thide{
+    display: none;
+}
+.tshow{
+    display: block;
+}
+form .row>[class^=col] {
+    padding-top: .0rem !important;
+    padding-bottom: .0rem !important;
+    background-color: #fff !important;
+    border: 0px !important;
+}
+.widget-area-2 {
+    background: #fff;
+    /* margin-top: 1rem; */
+    padding: 0px 10px 0px 0px;
+    padding-bottom: 2px;
+    border-radius: 2px;
+}
+.table td, .table th {
+    padding: 1px 0px !important;
+}
+.form-control {
+    border-color: #2b6749;
+}
+select.form-control:not([size]):not([multiple]) {
+    height: 2rem;
+}
+p {
+    font-size: 1em;
+    line-height: 0.7em;
+    color: #666;
+    letter-spacing: .3px;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- Pre Loader -->
+    <div class="loading">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+    <!--/Pre Loader -->
+    <div class="wrapper">       
+        <!-- Page Content -->
+        <div id="content">
+                            <!-- Top Navigation -->
+<div class="container top-brand">
+    <nav class="navbar navbar-default">         
+        <div class="navbar-header">
+            <div class="sidebar-header"> <a href="http://doctor.devmizanur.com/doctor/dashboard"><img src="http://doctor.devmizanur.com/assets/images/logo-dark.png" class="logo" alt="logo"></a>
+            </div>
+        </div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link">
+                    <span title="Fullscreen" class="ti-fullscreen fullscreen"></span>
+                </a>                            
+            </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="ti-user" style="background-color: red; color: white;font-weight: bold;"></span>
+                </a>
+                <div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
+                    <h5>Doctor</h5>
+                    <a class="dropdown-item" href="#">
+                        <span class="ti-settings"></span> Settings</a>
+                    <a class="dropdown-item" href="#">
+                        <span class="ti-help-alt"></span> Help</a>
+                    <a class="dropdown-item" href="http://doctor.devmizanur.com/logout"onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();" >
+                        <span class="ti-power-off"></span> Logout</a>
+                        <form id="logout-form" action="http://doctor.devmizanur.com/logout" method="POST" style="display: none;">
+                            <input type="hidden" name="_token" value="PqwhvFP9V1uDZLFZd9MLOgpDp41Di7V9AsCAN2ib">                        </form>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+</div>
+<!-- /Top Navigation -->
+<!-- Menu -->
+<div class="container menu-nav">
+    <nav class="navbar navbar-expand-lg proclinic-bg text-white">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="ti-menu text-white"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link" href="http://doctor.devmizanur.com/doctor/dashboard">
+                    <span class="ti-home"></span> Dashboard</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link"href="http://doctor.devmizanur.com/doctor/profile" ><i class="fa fa-user"></i> Profile</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        aria-expanded="false"><i class="fa fa-wheelchair"></i> Patients</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://doctor.devmizanur.com/doctor/patient/create">Add Patient</a>
+                        <a class="dropdown-item" href="http://doctor.devmizanur.com/doctor/patient">All Patients</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link" href="http://doctor.devmizanur.com/doctor/appoint"><i class="fa fa-stethoscope"></i> Appointments</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- /Menu -->                      <!-- Breadcrumb -->
+            
+            <div class="container mt-0">
+                <div class="row breadcrumb-bar">
+                    <div class="col-md-6">
+                        <h3 class="block-title">Write Prescription</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">
+                                    <span class="ti-home"></span>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active">Write Prescription</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /Breadcrumb -->
+            <!-- Main Content -->
+            <div class="container home" style="min-height: 400px;">
+                
+                
+        
+    <form action="http://doctor.devmizanur.com/doctor/prescription" method="POST" style="">
+    <input type="hidden" name="_token" value="PqwhvFP9V1uDZLFZd9MLOgpDp41Di7V9AsCAN2ib">    <input type="hidden" value="1" name="request_id">
+        <input type="hidden" value="1" name="history_id">
+        <input type="hidden" value="1" name="patient_id">
+    <input type="hidden" value="1" name="doctor_id">
+    <div class="row" style="margin: 14px 0px;">
+        <div class="col-md-12">
+            <div class="widget-area-2 text-right pb-2">
+                            <input type="radio" id="hide2" value="2" name="prescribe" checked> <label for="hide2" class="font-weight-bold mr-3"> Suggested Prescription</label>
+                            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check-circle"></i> Ok</button>
+            </div>
+        </div>
+        <div class="col-md-12 bg-white mt-3" id="pres" style="padding: 13px 24px;">
+            <div class="row" style="padding: 20px 0px 10px 0px;">
+                <div class="col-md-4">
+                    <h4>Doctor</h4>
+                    <div class="">MBBS (DU)</div>
+                    <div class="">Medicine Specialist</div>
+                    <div class=""><strong style="color: green;">Hospital</strong></div>
+                </div>
+                <div class="col-md-4 text-center">
+                <h4>Chamber</h4>
+                    <div class="">Doctor Degree</div>
+                    <div class="">Doctor Training</div>
+                    <div class=""><strong style="color: green;">Imagine Hospital</strong></div>
+                </div>
+                <div class="col-md-4 text-right">
+                    <h4>Doctor</h4>
+                    <div class="">MBBS (DU)</div>
+                    <div class="">Medicine Specialist</div>
+                    <div class=""><strong style="color: green;">Hospital</strong></div>
+                </div>
+            </div>
+
+            <div class="row" style="padding:5px 0px 5px 0px;border-top:1px solid #2b6749;border-bottom:1px solid #2b6749 !important;">
+                <div class="col-sm-5 pt-0 pb-0" style="border-right:1px solid #2b6749 !important;">Name : Mehedi</div>
+                <div class="col-sm-2 pt-0 pb-0"  style="border-right:1px solid #2b6749 !important;;">Age : 28</div>
+                <div class="col-sm-2 pt-0 pb-0" style="border-right:1px solid #2b6749 !important;;">Sex : Male</div>
+                <div class="col-sm-2 pt-0 pb-0"> Date : 30 Oct 2019</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2" style="border-right: 1px solid #2b6749 !important;">
+                    <br>
+                    <p>BP <b style="margin-left: 20px;">:</b> 120/80</p>
+                    <p>BS<b style="margin-left: 20px;">:</b> 8</p>
+                    <p>Pulse<b style="margin-left: 20px;">:</b>55</p>
+                    <br>
+                    <div class="row mb-2">
+                        <div class="col-sm-12 col-md-12">
+                            <textarea class="form-control col-md-12 col-sm-12" name="symptom" placeholder="Symptom"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-12 col-md-12">
+                            <textarea class="form-control col-md-12 col-sm-12" name="test" placeholder="Test Name"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="app" class="col-sm-10" style="min-height:400px;font-size:1em;padding-top:5px;border-left:1px solid #2b6749;">
+                    <div class="container">
+                        <div class="row mt-2">
+                            <div class="col-md-3">
+                                <select type="text" v-model="category" class="form-control form-control-sm">
+                                    <option value="1">Category</option>
+                                    <option value="2">Category</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select type="text" v-model="generic" class="form-control form-control-sm">
+                                    <option value="1">Generic</option>
+                                    <option value="2">Generic</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select type="text" class="form-control form-control-sm">
+                                    <option value="">Medicine</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select name="cmbDose[]" class="form-control form-control-sm">
+                                    <option selected="false"  disabled>Doses Time</option>
+                                    <option value="1+1+1">1+1+1</option>
+                                    <option value="1+1+0">1+1+0</option>
+                                    <option value="1+0+0">1+0+0</option>
+                                    <option value="0+1+1">0+1+1</option>
+                                    <option value="0+0+1">0+0+1</option>
+                                    <option value="0+1+0">0+1+0</option>
+                                    <option value="1+0+1">1+0+1</option>
+                                    <option value="1+1+1+1">1+1+1+1</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2 mt-2">
+                                <select name="cmbQty[]" class="form-control form-control-sm">
+                                    <option selected="false"  disabled>Does Qty</option>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 mt-2">
+                                <select name="cmbQtyType[]" class="form-control form-control-sm">
+                                    <option selected="false"  disabled>Qty Type</option>
+                                    <option value="চামচ">চামচ</option>
+                                    <option value="টি">টি</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 mt-2">
+                                <select name="cmbEat[]" class="form-control form-control-sm">
+                                    <option selected="false"  disabled>Eat Time</option>
+                                    <option value="খাবার পর">খাবার পর</option>
+                                    <option value="খাবার আগে">খাবার আগে</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 mt-2">
+                                <select name="eatDuration[]" class="form-control form-control-sm">
+                                    <option selected='false' disabled> Duration </option>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+                                    <option value='5'>5</option>
+                                    <option value='6'>6</option>
+                                    <option value='7'>7</option>
+                                    <option value='8'>8</option>
+                                    <option value='9'>9</option>
+                                    <option value='10'>10</option>
+                                    <option value='11'>11</option>
+                                    <option value='12'>12</option>
+                                    <option value='13'>13</option>
+                                    <option value='14'>14</option>
+                                    <option value='15'>15</option>
+                                    <option value='16'>16</option>
+                                    <option value='17'>17</option>
+                                    <option value='18'>18</option>
+                                    <option value='19'>19</option>
+                                    <option value='20'>20</option>
+                                    <option value='21'>21</option>       
+                                </select>
+                            </div>
+                            <div class="col-md-3 mt-2">
+                                <select name="cmbEatDurationType[]" class="form-control form-control-sm">
+                                    <option selected="false"  disabled>Duration Type</option>
+                                    <option value="দিন">দিন</option>
+                                    <option value="মাস">মাস</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1 mt-2">
+                                <button @click="addCat" type="button" class="btn btn-sm btn-success btn-block"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-2" v-for="(prescribe, n) in prescribes">
+                            <p>
+                              <span class="cat">{{ prescribe }}</span>
+                              <button @click="removeCat(n)" type="button">Remove</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <div class="row" style="border-top:1px solid #2b6749;padding:5px;">
+            
+            </div>
+            <div class="col-sm-12 text-center" style="padding: 0px 0px 10px 0px;">
+                This is computer generated Prescription. Generated by <a href="http://devmizanur.com" target="_blank"> Mizanur Rahman</a>
+            </div>
+        </div>
+        <div class="col-md-12 bg-white mt-3 thide" id="test" style="padding: 13px 24px;">
+            <div class="row" style="padding: 7px;" id="test">
+                <div class="col-sm-12 col-md-12">
+                    <textarea class="form-control col-md-12 col-sm-12" name="onlytest" placeholder="Test Name"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+            </div>
+            <!-- /Main Content -->
+            <!--Copy Rights-->
+            <div class="container">
+                <div class="d-sm-flex justify-content-center">
+                  <span class="text-muted text-center d-block d-sm-inline-block">Copyright © 2019 <a href="http://www.devmizanur.com/" target="_blank">Mizanur Rahman</a>. All rights reserved.</span>
+                </div>
+            </div>
+            <!-- /Copy Rights-->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- Back to Top -->
+    <a id="back-to-top" href="#" class="back-to-top">
+        <span class="ti-angle-up"></span>
+    </a>
+    <!-- /Back to Top -->
+    <!-- Jquery Library-->
+    <script src="http://doctor.devmizanur.com/assets/js/jquery-3.2.1.min.js"></script>
+    <!-- Popper Library-->
+    <script src="http://doctor.devmizanur.com/assets/js/popper.min.js"></script>
+    <!-- Bootstrap Library-->
+    <script src="http://doctor.devmizanur.com/assets/js/bootstrap.min.js"></script>
+    <!-- morris charts -->
+    <script src="http://doctor.devmizanur.com/assets/charts/js/raphael-min.js"></script>
+    <script src="http://doctor.devmizanur.com/assets/charts/js/morris.min.js"></script>
+    <script src="http://doctor.devmizanur.com/assets/js/custom-morris.js"></script>
+
+    <!-- Custom Script-->
+    <script src="http://doctor.devmizanur.com/assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script> <script type="text/javascript">toastr.options = {"closeButton":true,"closeClass":"toast-close-button","closeDuration":300,"closeEasing":"swing","closeHtml":"<button><i class=\"icon-off\"><\/i><\/button>","closeMethod":"fadeOut","closeOnHover":true,"containerId":"toast-container","debug":false,"escapeHtml":false,"extendedTimeOut":10000,"hideDuration":1000,"hideEasing":"linear","hideMethod":"fadeOut","iconClass":"toast-info","iconClasses":{"error":"toast-error","info":"toast-info","success":"toast-success","warning":"toast-warning"},"messageClass":"toast-message","newestOnTop":false,"onHidden":null,"onShown":null,"positionClass":"toast-top-right","preventDuplicates":true,"progressBar":true,"progressClass":"toast-progress","rtl":false,"showDuration":300,"showEasing":"swing","showMethod":"fadeIn","tapToDismiss":true,"target":"body","timeOut":5000,"titleClass":"toast-title","toastClass":"toast"};</script>   <script>
+$(function(){
+    // default
+    $("#pres").addClass('pshow');
+    $("#test").addClass('thide');
+    //Need Test
+    $("#hide0").click(function(){
+        $("#pres").removeClass('pshow');
+        $("#pres").addClass('phide');
+        $("#test").removeClass('thide');
+        $("#test").addClass('tshow');
+    });
+
+    //Direct Presciption
+    $("#hide1").click(function(){
+        $("#pres").removeClass('phide');
+        $("#pres").addClass('pshow');
+        $("#test").removeClass('tshow');
+        $("#test").addClass('thide');
+    });
+});
+</script>
+<!-- show product by category first -->
+<script type="text/javascript">
+  $("select[name='cmbProductCategory']").change(function(){
+      var cmbProductCategory = $(this).val();
+      var token = $("input[name='_token']").val();
+      $.ajax({
+          url: "",
+          method: 'POST',
+          data: {cmbProductCategory:cmbProductCategory, _token:token},
+          success: function(data) {
+            $("select[name='cmbProductInfo[]'").html(data.options);
+          }
+      });
+  });
+</script>
+<!-- Show Product by category when add new row-->
+<script type="text/javascript">
+    $('tbody').delegate('#cat','change', function(){
+        var tr = $(this).parent().parent();
+        var id = tr.find('#cat').val();
+        var dataId = {'id':id};
+        var token = $("input[name='_token']").val();
+        $.ajax({
+            url: "",
+            method: 'POST',
+            data: {cmbProductCategory:dataId, _token:token},
+            success: function(data) {
+              $("#pName").html(data.options);
+            }
+        });
+    });
+
+// Add new Row and function
+
+    $('.addRow').click(function() {
+      addRow();
+    });
+    function addRow(){
+      var addRow = '<tr>'+
+                      '<td>'+
+                          '<select name="cmbProductCategory" id="cat" class="form-control form-control-sm">'+
+                                '<option selected="false" disabled>Category</option>'+
+                                '<option value="1">Cat1</option>'+
+                                '<option value="2">Cat2</option>'+
+                          '</select>'+
+                      '</td>'+
+                      '<td>'+
+                          '<select name="cmbProductInfo[]" id="pName" class="form-control duplicat">'+
+                                '<option selected="false" disabled>Medicine</option>'+
+                                '<option value="1">Cat1</option>'+
+                                '<option value="2">Cat2</option>'+
+                          '</select>'+
+                      '</td>'+
+                      '<td>'+
+                          '<select name="cmbDose[]" class="form-control form-control-sm">'+
+                              '<option selected="false" disabled>Select</option>'+
+                              '<option value="1+1+1">1+1+1</option>'+
+                              '<option value="1+1+0">1+1+0</option>'+
+                              '<option value="1+0+0">1+0+0</option>'+
+                              '<option value="0+1+1">0+1+1</option>'+
+                              '<option value="0+0+1">0+0+1</option>'+
+                              '<option value="0+1+0">0+1+0</option>'+
+                              '<option value="1+0+1">1+0+1</option>'+
+                              '<option value="1+1+1+1">1+1+1+1</option>'+
+                          '</select>'+
+                      '</td>'+
+                      '<td>'+
+                          '<select name="cmbQty[]" class="form-control form-control-sm">'+
+                              '<option selected="false" disabled>Select</option>'+
+                              '<option value="1">1</option>'+
+                              '<option value="2">2</option>'+
+                              '<option value="3">3</option>'+
+                              '<option value="4">4</option>'+
+                          '</select>'+
+                      '</td>'+
+                      '<td>'+
+                          '<select name="cmbQtyType[]" class="form-control form-control-sm">'+
+                              '<option selected="false" disabled>Select</option>'+
+                              '<option value="চামচ">চামচ</option>'+
+                              '<option value="টি">টি</option>'+
+                          '</select>'+
+                      '</td>'+
+                      '<td>'+
+                          '<select name="cmbEat[]" class="form-control form-control-sm">'+
+                              '<option selected="false" disabled>Select</option>'+
+                              '<option value="খাবার পর">খাবার পর</option>'+
+                              '<option value="খাবার আগে">খাবার আগে</option>'+
+                          '</select>'+
+                      '</td>'+
+                      '<td>'+
+                          '<select name="eatDuration[]" class="form-control form-control-sm">'+
+                          '<option selected="false"  disabled>Select</option>'+
+                            '<option value="1">1</option>'+
+                            '<option value="2">2</option>'+
+                            '<option value="3">3</option>'+
+                            '<option value="4">4</option>'+
+                            '<option value="5">5</option>'+
+                            '<option value="6">6</option>'+
+                            '<option value="7">7</option>'+
+                            '<option value="8">8</option>'+
+                            '<option value="9">9</option>'+
+                            '<option value="10">10</option>'+
+                            '<option value="11">11</option>'+
+                            '<option value="12">12</option>'+
+                            '<option value="13">13</option>'+
+                            '<option value="14">14</option>'+
+                            '<option value="15">15</option>'+
+                            '<option value="16">16</option>'+
+                            '<option value="17">17</option>'+
+                            '<option value="18">18</option>'+
+                            '<option value="19">19</option>'+
+                            '<option value="20">20</option>'+
+                            '<option value="21">21</option>'+
+                        '</select>'+
+                      '</td>'+
+                      '<td>'+
+                          '<select name="cmbEatDurationType[]" class="form-control form-control-sm">'+
+                              '<option selected="false" disabled>Select</option>'+
+                              '<option value="দিন">দিন</option>'+
+                              '<option value="মাস">মাস</option>'+
+                          '</select>'+
+                      '</td>'+
+                      '<td><button type="button" class="btn btn-sm btn-danger remove" name="dis"><i class="fa fa-close"></i> </button></td>'+
+                  '</tr>';
+      $('tbody').prepend(addRow);
+    };
+    $('table').delegate('.remove','click', function(){
+      var l = $('tbody tr').length;
+      if (l==1) {
+        Swal.fire('You can not remove last one');
+      }else{
+        $(this).parent().parent().remove();
+      }
+    });
+</script>
+<script>
+    const app = new Vue({
+    el: '#app',
+    data: {
+    prescribes: [],
+    category: null,
+    generic: null
+    },
+    mounted() {
+        console.log('mounted')
+    if (localStorage.getItem('prescribes')) {
+        try {
+            this.prescribes = JSON.parse(localStorage.getItem('prescribes'));
+        } catch(e) {
+            localStorage.removeItem('prescribes');
+        }
+    }
+    },
+    methods: {
+        addCat() {
+          // ensure they actually typed something
+          if (!this.category || !this.generic) {
+            return;
+          }
+
+          this.prescribes.push(this.category, this.generic);
+          this.category = '';
+          this.saveprescribes();
+        },
+        removeCat(x) {
+          this.prescribes.splice(x, 1);
+          this.saveprescribes();
+        },
+        saveprescribes() {
+          const parsed = JSON.stringify(this.prescribes);
+          localStorage.setItem('prescribes', parsed);
+        }
+    }
+})
+</script>
+</body>
+
+</html>
+
