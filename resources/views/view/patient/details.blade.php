@@ -212,7 +212,7 @@ $store = $auth == 'Doctor' ? route('doctor.patient-info.store') : route('agent.p
 									<span class="badge badge-danger">Absent</span>
 								@else
 									@if($appoint->accept == 1 && $appoint->done == 0)
-									<span class="badge badge-info">Accepted</span>
+									<a href="{{route('doctor.appoint.show',$appoint->id)}}" class="btn btn-padding badge-info">Accepted</a>
 									@elseif($appoint->accept == 1 && $appoint->done == 1 && $appoint->status == 0)
 									<span class="badge badge-info">Inv. Advised</span>
 									@elseif($appoint->accept == 1 && $appoint->done == 1 && $appoint->status == 1)

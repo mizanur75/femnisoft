@@ -101,17 +101,13 @@ select.form-control:not([size]):not([multiple]) {
 					<thead>
 						<tr class="text-center">
 							<th>#SL</th>
-							<th>ECOH ID</th>
+							<th>PT. ID</th>
 							<th>Visit</th>
-							<th>Pt. Type</th>
 							<th>Patient's Name</th>
 							<th>Age (Y)</th>
 							<th>Address</th>
 							<th>Consult. Date</th>
-							<th width="15%">Diagnosis</th>
-							<th width="15%">Doctor's Name</th>
-							<th>Report(s)</th>
-							<th>Prescription(s)</th>
+							<th>Advice(s)</th>
 						</tr>
 					</thead>
 					<tbody id="tbody">
@@ -121,7 +117,6 @@ select.form-control:not([size]):not([multiple]) {
 							<td>{{$history->id}}</td>
 							<td>{{$history->ecohid}}</td>
 							<td>{{$history->visit}}</td>
-							<td>{{$history->mem_type}}</td>
 							<td>{{$history->patient_name}}</td>
 							<td>
 								@php
@@ -138,33 +133,12 @@ select.form-control:not([size]):not([multiple]) {
 							</td>
 							<td>{{$history->address}}</td>
 							<td>{{date('d M Y', strtotime($history->created_at))}}</td>
-							<td>{{$history->diagnosis}}</td>
-							<td>
-								{{$history->name}}
-								<!-- <p style="font-size: 11px;">
-						        	{{$history->spcialist}}
-						        </p> -->
-							</td>
-							<td>
-								@if(\App\Model\Report::where('history_id',$history->id)->count() > 0)
-						        	<a href="{{route('doctor.reports',$history->id)}}" class="btn btn-padding btn-sm btn-outline-info mb-0" target="_blank"><i class="fa fa-eye"></i> See</a>
-						        @else
-							        @if($history->test == !null)
-							        	<a href ="{{route('doctor.add_reports',$history->id)}}" target="_blank" class="btn btn-padding btn-sm btn-outline-warning mb-0" ><i class="fa fa-plus" ></i > Add </a >
-							        @else
-							        	<button class="btn btn-padding btn-sm btn-outline-danger">No Report</button>
-								        @if($history->suggest_follow_up == '0' || (\App\Model\Finv::where('patient_info_id',$history->pid)->count() > 0))
-								        <button onclick="addEdit({{$history->id}})" class="btn btn-padding btn-sm btn-outline-warning mb-0" ><i class="fa fa-plus" ></i >/<i class="fa fa-edit" ></i > </button>
-								        @endif
-							        @endif
-						        @endif
-							</td>
 							<td>
 								@if(\App\Model\Prescription::where('history_id',$history->id)->count() > 0)
 						        	<a href="{{route('doctor.prescription.show', $history->id)}}" class="btn btn-padding btn-sm btn-outline-info" target="_blank"><i class="fa fa-eye"></i> See</a>
 						        @else
 							        @if(Auth::user()->role->id == 3 && $history->did == Auth::user()->id)
-							        	<a href="{{route('doctor.prescription.edit',$history->request_id)}}" class="btn btn-padding btn-sm btn-outline-info mb-0" ><i class="fa fa-eye" ></i > Write Prescription </a >
+							        	<a href="{{route('doctor.prescription.edit',$history->request_id)}}" class="btn btn-padding btn-sm btn-outline-info mb-0" ><i class="fa fa-eye" ></i > Write Advice </a >
 							        @else
 							        	<a href ="#" class="btn btn-padding btn-sm btn-outline-warning mb-0" ><i class="fa fa-eye" ></i > Not Ready </a >
 							        @endif

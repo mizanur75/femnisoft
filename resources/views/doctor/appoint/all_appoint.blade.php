@@ -108,8 +108,6 @@ select.form-control:not([size]):not([multiple]) {
 							</td>
 							@endif
 							<td class="text-center">{{$appoint->ecohid}}</td>
-							<!-- <td class="text-center">{{$appoint->patient_type}}</td> -->
-							<!-- <td>{{$appoint->dname}}</td> -->
 							<td>{{$appoint->name}}</td>
 							<td class="text-center">
 								@php($dob = strlen($appoint->age) < 5 ? now() : $appoint->age)

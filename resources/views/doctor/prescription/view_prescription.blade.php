@@ -57,7 +57,6 @@ hr {
 <div class="row">
 	<div class="col-md-12 col-print">
 		<div class="widget-area-2 text-right pt-2">
-			<!-- <a href="{{route('agent.pdf',$info->hid)}}" target="_blank" class="btn btn-padding btn-sm btn-success"><i class="fa fa-download"></i>	Download</a> -->
 			@if(Auth::user()->role->name == 'Doctor' && Auth::user()->id == $info->duser_id)
 			<a href="{{route('doctor.edit_prescription',$info->hid)}}" class="btn btn-padding btn-sm btn-success"><i class="fa fa-edit"></i> Edit</a>
 			@endif

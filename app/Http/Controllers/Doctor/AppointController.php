@@ -25,14 +25,12 @@ class AppointController extends Controller
         $title = 'All';
         $appoints = DB::table('patient_requests as pare')
                         ->join('patients as p','p.id','=','pare.patient_id')
-                        ->join('patient_infos as pi','pi.id','=','pare.patient_info_id')
                         ->join('addresses as ad','ad.id','=','p.address_id')
                         ->join('doctors as d','d.id','=','pare.doctor_id')
                         ->join('users as u','u.id','=','d.user_id')
-                        // ->where('d.user_id', Auth::user()->id)
                         ->where('pare.status',0)
                         ->where('pare.is_delete',0)
-                        ->select('pare.*','p.id as pid','p.centre_patient_id as ecohid','pi.mem_type as patient_type','p.name as name','p.age as age','ad.name as address','p.blood_group as blood_group','d.id as did','u.name as dname','d.user_id as doctor_user_id')
+                        ->select('pare.*','p.id as pid','p.centre_patient_id as ecohid','p.name as name','p.age as age','ad.name as address','p.blood_group as blood_group','d.id as did','u.name as dname','d.user_id as doctor_user_id')
                         ->get();
         return view('doctor.appoint.all_appoint', compact('appoints','title'));
     }
@@ -392,7 +390,6 @@ class AppointController extends Controller
         $title = 'Today\'s All';
         $appoints = DB::table('patient_requests as pare')
                         ->join('patients as p','p.id','=','pare.patient_id')
-                        ->join('patient_infos as pi','pi.id','=','pare.patient_info_id')
                         ->join('addresses as ad','ad.id','=','p.address_id')
                         ->join('doctors as d','d.id','=','pare.doctor_id')
                         ->join('users as u','u.id','=','d.user_id')
@@ -401,7 +398,7 @@ class AppointController extends Controller
                         // ->where('pare.serial_no', '!=', null)
                         ->where('pare.is_delete',0)
                         ->where('pare.appoint_date', 'LIKE','%'. $today .'%')
-                        ->select('pare.*','p.id as pid','p.centre_patient_id as ecohid','pi.mem_type as patient_type','p.name as name','p.age as age','ad.name as address','p.blood_group as blood_group','d.id as did','u.name as dname')
+                        ->select('pare.*','p.id as pid','p.centre_patient_id as ecohid','p.name as name','p.age as age','ad.name as address','p.blood_group as blood_group','d.id as did','u.name as dname')
                         ->get();
         return view('doctor.appoint.appoint', compact('appoints','title'));
     }
