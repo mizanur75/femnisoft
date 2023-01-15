@@ -65,13 +65,6 @@
                 <li class="nav-item dropdown {{Request::is('doctor/profile*')?'active':''}}">
                     <a class="nav-link"href="{{route('doctor.profile.index')}}" ><i class="fa fa-user"></i> Profile</a>
                 </li>
-                <!-- <li class="nav-item dropdown {{Request::is('doctor/doctor*') ? 'active' : ''}} {{Request::is('doctor/profile*')?'active':''}}">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" href="{{route('doctor.doctors')}}" ><i class="fa fa-user-md"></i> Doctor</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{route('doctor.doctors')}}">All Profile</a>
-                        <a class="dropdown-item" href="{{route('doctor.profile.index')}}">My Profile</a>
-                    </div>
-                </li> -->
                 @if(\App\Model\Doctor::where('user_id', Auth::user()->id)->count() > 0)
                 <li class="nav-item dropdown {{Request::is('doctor/patient*')?'active':''}}">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wheelchair"></i> Patients</a>
@@ -97,11 +90,6 @@
                         <a class="dropdown-item" href="{{ route('doctor.all_appoint_today', \Carbon\Carbon::parse()->format('d-m-Y')) }}">
                             Today's Appoint
                         </a>
-                        <!-- <a class="dropdown-item" href="{{ route('doctor.appoint_today', \Carbon\Carbon::parse()->format('d-m-Y')) }}">Today's My Appoint
-                            @if($today_appoint > 0)
-                            <span class="badge badge-success" style="border-radius: 50%;">{{$today_appoint}}</span>
-                            @endif
-                        </a> -->
                         <a class="dropdown-item" href="{{ route('doctor.appoint.index') }}">
                             All Appoint
                             @if($all_appoint > 0)
@@ -129,21 +117,13 @@
                         </a>
                     </div>
                 </li>
-                <li class="nav-item dropdown {{Request::is('doctor/frequency*')?'active':''}} {{Request::is('doctor/qtytype*')?'active':''}} {{Request::is('doctor/qty*')?'active':''}} {{Request::is('doctor/eatingtime*')?'active':''}} {{Request::is('doctor/advice*')?'active':''}} {{route('doctor.test.index')}}">
+                <li class="nav-item dropdown {{Request::is('doctor/frequency*')?'active':''}} {{Request::is('doctor/qtytype*')?'active':''}} {{Request::is('doctor/qty*')?'active':''}} {{Request::is('doctor/eatingtime*')?'active':''}} {{Request::is('doctor/advice*')?'active':''}}">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                         aria-expanded="false"><i class="fa fa-tasks"></i> Manage</a>
                     <div class="dropdown-menu">
-                        <!-- <a class="dropdown-item {{Request::is('doctor/frequency*')?'activated':''}}" href="{{route('doctor.frequency.index')}}">Frequency</a>
-                        <a class="dropdown-item {{Request::is('doctor/qty')?'activated':''}}" href="{{route('doctor.qty.index')}}">Qty</a>
-                        <a class="dropdown-item {{Request::is('doctor/qtytype*')?'activated':''}}" href="{{route('doctor.qtytype.index')}}">Qty Type</a>
-                        <a class="dropdown-item {{Request::is('doctor/eatingtime*')?'activated':''}}" href="{{route('doctor.eatingtime.index')}}">Eating Time</a>
-                        <a class="dropdown-item {{Request::is('doctor/test*')?'activated':''}}" href="{{route('doctor.test.index')}}">Test</a> -->
                         <a class="dropdown-item {{Request::is('doctor/advice*')?'activated':''}}" href="{{route('doctor.advice.index')}}">Advice</a>
                     </div>
                 </li>
-                <!-- <li class="nav-item dropdown {{Request::is('doctor/export_excel*')?'active':''}}">
-                    <a class="nav-link"href="{{route('doctor.excel')}}" ><i class="fa fa-file-export"></i> Export Data</a>
-                </li> -->
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link" href="{{route('doctor.patient.create')}}" ><i class="ti-receipt"></i> Create Prescription</a>
                 </li> -->
@@ -156,21 +136,6 @@
                         @endif
                     </a>
                 </li>
-                <!-- <li class="nav-item dropdown {{Request::is('doctor/invoice*')?'active':''}} {{Request::is('doctor/invoice*')?'active':''}} {{Request::is('doctor/donate*')?'active':''}} {{Request::is('doctor/report*')?'active':''}}">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false"><i class="ti-receipt"></i> Invoices
-
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="nav-link"href="{{route('doctor.consultation')}}" > Consultation</a>
-                        <a class="nav-link"href="{{route('doctor.invoice.index')}}" > Labratory</a>
-                        <a class="nav-link"href="{{route('doctor.self_invoice')}}" > Follow-up</a>
-                        <a class="nav-link"href="{{route('doctor.donate.index')}}" > Donation</a>
-                        <a class="nav-link"href="{{route('doctor.miscellaneous.index')}}" > Balance Forward</a>
-                        <a class="nav-link"href="{{route('doctor.cost.index')}}" > Expenditure</a>
-                        <a class="nav-link"href="{{route('doctor.report')}}" > Report</a>
-                    </div>
-                </li> -->
                 @endif
             </ul>
         </div>

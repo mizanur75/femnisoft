@@ -174,7 +174,7 @@
 	$("#ecoh_id").focusout(function(){
 		var ecoh_id = $(this).val();
 		$.ajax({
-			url : "{{route('agent.check_ecoh_id')}}",
+			url : "",
 			method: "POST",
 			dataType: "JSON",
 			data: {ecoh_id:ecoh_id, _token:"{{csrf_token()}}"},

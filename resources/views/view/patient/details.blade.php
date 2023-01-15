@@ -115,15 +115,13 @@ $store = $auth == 'Doctor' ? route('doctor.patient-info.store') : route('agent.p
     </div>
     @endif
 @else
-    @if(\App\Model\PatientInfo::where('patient_id',$patient->id)->count()>0)
-		@php($doctor = \App\Model\Doctor::where('user_id',Auth::user()->id)->first())
-		@if(\App\Model\PatientRequest::where('patient_id',$patient->id)->where('doctor_id',$doctor->id)->where('status',0)->where('is_delete',0)->count() == 0)
-			<div class="col-md-12">
-		        <div class="widget-area-2 proclinic-box-shadow text-right">
-		            <a href="{{ route('doctor.payrequest',['doctor_id'=>$doctor->id, 'patient_id'=>$patient->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-padding btn-sm btn-info"><i class="fas fa-pencil-alt"></i> Write Advice </a>
-		        </div>
-		    </div>
-	    @endif
+	@php($doctor = \App\Model\Doctor::where('user_id',Auth::user()->id)->first())
+	@if(\App\Model\PatientRequest::where('patient_id',$patient->id)->where('doctor_id',$doctor->id)->where('status',0)->where('is_delete',0)->count() == 0)
+		<div class="col-md-12">
+	        <div class="widget-area-2 proclinic-box-shadow text-right">
+	            <a href="{{ route('doctor.payrequest',['doctor_id'=>$doctor->id, 'patient_id'=>$patient->id]) }}" onclick="return confirm('Are you sure?')" class="btn btn-padding btn-sm btn-info"><i class="fas fa-pencil-alt"></i> Write Advice </a>
+	        </div>
+	    </div>
     @endif
 @endif
 	<!-- Patient Details -->
