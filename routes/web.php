@@ -3,10 +3,6 @@
 Route::get('/', 'Front\FrontController@index');
 Route::get('/about', 'Front\FrontController@about')->name('about');
 Route::get('/team', 'Front\FrontController@team')->name('team');
-Route::get('/services', 'Front\FrontController@services')->name('services')->middleware('cors');
-Route::get('/front-services', 'Front\FrontController@frontservices')->name('frontservices')->middleware('cors');
-Route::get('/blog', 'Front\FrontController@blog')->name('blog')->middleware('cors');
-Route::get('/front-blog', 'Front\FrontController@frontblog')->name('frontblog')->middleware('cors');
 Route::get('/faq', 'Front\FrontController@faq')->name('faq');
 Route::get('/pdf', 'Front\FrontController@pdf');
 Route::post('/newsletter', 'Front\FrontController@newsletter')->name('newsletter');

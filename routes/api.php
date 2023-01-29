@@ -16,3 +16,12 @@
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+ Route::group(['middleware' => ['api','cors']], function () {
+     Route::get('/services', 'Api\FrontController@services')->name('services');
+     Route::get('/front-services', 'Api\FrontController@frontservices')->name('frontservices');
+     Route::get('/blog', 'Api\FrontController@blog')->name('blog');
+     Route::get('/front-blog', 'Api\FrontController@frontblog')->name('frontblog');
+
+ });
+
