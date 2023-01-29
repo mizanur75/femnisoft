@@ -137,6 +137,16 @@
                     </a>
                 </li>
                 @endif
+
+                <li class="nav-item dropdown {{Request::is('doctor/web*')?'active':''}}">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> Website</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{route('doctor.web-category.index')}}">Category</a>
+                        <a class="dropdown-item" href="{{route('doctor.web-blog.index')}}">Blog</a>
+                        <a class="dropdown-item" href="{{route('doctor.web-service.index')}}">Services</a>
+                        <a class="dropdown-item" href="{{route('doctor.web-testimonial.index')}}">Testimonials</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>

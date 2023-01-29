@@ -2,40 +2,59 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use App\Model\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Blog;
 use Auth;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::orderBy('id','DESC')->get();
-        return view('view.front.blog.all', compact('blogs'));
+        $blogs = Blog::orderBy('id','DESC')->where('status',1)->get();
+        return view('view.blog.all', compact('blogs'));
     }
 
     public function create()
     {
-        return view('view.front.blog.add');
+        $categories = Category::get();
+        return view('view.blog.add', compact('categories'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
+            'category_id' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'status' => 'required'
+            'photo' => 'required'
         ]);
+        $slug = Str::slug($request->title);
+        $image = $request->file('photo');
+
+        if (isset($image)){
+            $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            if (!file_exists('images/blog')){
+                mkdir('images/blog', true, 777);
+            }
+            $image->move('images/blog',$imagename);
+        }else{
+            $imagename = '';
+        }
 
         $blog = new Blog();
         $blog->user_id = Auth::user()->id;
+        $blog->category_id = $request->category_id;
         $blog->title = $request->title;
+        $blog->slug = $slug;
         $blog->description = $request->description;
+        $blog->photo = $imagename;
         $blog->status = $request->status;
         $blog->save();
 
-        return redirect()->route('doctor.blog.index')->with('success','Blog Successfully created!');
+        return redirect()->route('doctor.web-blog.index')->with('success','Blog Successfully created!');
 
     }
 
@@ -46,25 +65,43 @@ class BlogController extends Controller
 
     public function edit($id)
     {
-        $blog = Blog::find($id);
-        return view('view.front.blog.edit', compact('blog'));
+        $blog = Blog::findOrFail($id);
+        $categories = Category::get();
+        return view('view.blog.edit', compact('blog','categories'));
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'category_id' => 'required',
             'title' => 'required',
             'description' => 'required'
         ]);
-
-        $blog = Blog::find($id);
+        $slug = Str::slug($request->title);
+        $blog = Blog::findOrFail($id);
+        $image = $request->file('photo');
+        if (isset($image)){
+            $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            if (file_exists('images/blog/'.$blog->photo)){
+                unlink('images/blog/'.$blog->photo);
+            }
+            if (!file_exists('images/blog')){
+                mkdir('images/blog', true, 777);
+            }
+            $image->move('images/blog',$imagename);
+        }else{
+            $imagename = $blog->photo;
+        }
         $blog->user_id = Auth::user()->id;
+        $blog->category_id = $request->category_id;
         $blog->title = $request->title;
+        $blog->slug = $slug;
         $blog->description = $request->description;
+        $blog->photo = $imagename;
         $blog->status = $request->status;
         $blog->save();
 
-        return redirect()->route('doctor.blog.index')->with('success','Blog Successfully Updated!');
+        return redirect()->route('doctor.web-blog.index')->with('success','Blog Successfully Updated!');
     }
 
     public function destroy($id)

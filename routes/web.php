@@ -134,18 +134,11 @@ Route::group(['as'=>'doctor.','prefix' => 'doctor','namespace'=>'Doctor','middle
     Route::resource('eatingtime','EatingtimeController');
 
     //================== Cost ==================================
-    Route::resource('blog','BlogController');
+    Route::resource('web-category','CategoryController');
+    Route::resource('web-blog','BlogController');
+    Route::resource('web-service','ServiceController');
+    Route::resource('web-testimonial','TestimonialController');
 
-    //------------ ADMIN SLIDER SECTION ------------
-
-    Route::get('/slider/datatables', 'SliderController@datatables')->name('doctor-sl-datatables'); //JSON REQUEST
-    Route::get('/slider', 'SliderController@index')->name('doctor-sl-index');
-    Route::get('/slider/create', 'SliderController@create')->name('doctor-sl-create');
-    Route::post('/slider/create', 'SliderController@store')->name('doctor-sl-store');
-    Route::get('/slider/edit/{id}', 'SliderController@edit')->name('doctor-sl-edit');
-    Route::post('/slider/edit/{id}', 'SliderController@update')->name('doctor-sl-update');  
-    Route::get('/slider/delete/{id}', 'SliderController@destroy')->name('doctor-sl-delete');
-    //------------ ADMIN SLIDER SECTION ENDS ------------
 });
 
 //  =========================== Pharmacy Route 4 ============================
