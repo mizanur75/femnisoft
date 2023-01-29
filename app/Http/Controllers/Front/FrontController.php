@@ -6,6 +6,7 @@ use App\Model\Doctor;
 use App\Model\History;
 use App\Model\Patient;
 use App\Model\PatientRequest;
+use App\Model\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use PDF;
@@ -61,10 +62,12 @@ class FrontController extends Controller
         return view('web.team');
     }
     public function services(){
-        return view('web.services');
+        $services = Service::orderBy('id','DESC')->take(5)->get();
+        return response()->json($services);
     }
     public function blog(){
-        return view('web.blog');
+        $blog = Blog::orderBy('id','DESC')->take(16)->get();
+        return response()->json($blog);
     }
     public function faq(){
         return view('web.faq');
