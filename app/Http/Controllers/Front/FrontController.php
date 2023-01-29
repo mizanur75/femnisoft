@@ -65,8 +65,16 @@ class FrontController extends Controller
         $services = Service::orderBy('id','DESC')->take(5)->get();
         return response()->json($services);
     }
+    public function frontservices(){
+        $services = Service::orderBy('id','DESC')->take(4)->get();
+        return response()->json($services);
+    }
     public function blog(){
         $blog = Blog::orderBy('id','DESC')->take(16)->get();
+        return response()->json($blog);
+    }
+    public function frontblog(){
+        $blog = Blog::orderBy('id','DESC')->take(2)->get();
         return response()->json($blog);
     }
     public function faq(){
