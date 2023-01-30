@@ -198,7 +198,7 @@ hr {
 						<div class="col-sm-12 col-md-12">
 							<b for="">Patient History:</b>
 							<hr>
-							<textarea style="min-height: 400px;" class="form-control col-md-12 col-sm-12" id="nic-edit" name="cc" placeholder="History">{{$appoint->cc}}</textarea>
+							<textarea style="min-height: 400px;" class="form-control col-md-12 col-sm-12" id="nic-edit" name="cc" placeholder="History">{!! $appoint->cc !!}</textarea>
 						</div>
 					</div>
 				</div>

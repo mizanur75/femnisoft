@@ -166,7 +166,7 @@ select.form-control:not([size]):not([multiple]) {
 							<td class="text-center">{{$patient->address}}</td>
 							<td class="text-center">{{$patient->blood_group}}</td>
 							<td class="text-center">
-								{{$patient->cc}}
+								{!! $patient->cc !!}
 							</td>
 						</tr>
 						@endforeach
