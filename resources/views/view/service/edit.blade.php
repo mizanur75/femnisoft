@@ -59,21 +59,16 @@
 						<div class="form-row">
 							<div class="form-group col-md-11" id="uploadImage">
 								<input type="file" name="photo">
+                                <img src="{{asset('assets/images/services/'.$service->photo)}}" height="200" width="240" alt="" id="photo">
 							</div>
-
-							<div class="form-group col-md-10" id="webcamImage">
-								<div class="row">
-									<div class="form-group col-md-5">
-										<label>Picture</label>
-										<canvas id="canvas" width="240" height="200" style="display:none;" class="border"></canvas>
-		    							<img src="{{asset('assets/images/services/'.$service->photo)}}" height="200" width="240" alt="" id="photo">
-									</div>
-								</div>
+							<div class="form-group col-md-11" id="uploadImage">
+								<input type="file" name="image2">
+                                <img src="{{asset('assets/images/image2/'.$service->image2)}}" height="200" width="240" alt="" id="photo">
 							</div>
 						</div>
 					</div>
 
-					<div class="form-check col-md-6 mb-2">
+					<div class="form-check col-md-12 mb-2">
 						<div class="text-left">
 							<div class="custom-control custom-checkbox">
 								<input class="custom-control-input" type="checkbox" id="ex-check-2" name="status" value="1"  required {{$service->status == 1 ? 'checked':''}}>

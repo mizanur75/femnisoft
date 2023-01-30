@@ -35,6 +35,7 @@ class ServiceController extends Controller
         ]);
         $slug = Str::slug($request->title);
         $image = $request->file('photo');
+        $image2 = $request->file('image2');
 
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
@@ -46,6 +47,16 @@ class ServiceController extends Controller
             $imagename = '';
         }
 
+        if(isset($image2)){
+            $image2name = $slug.'-'.uniqId().'.'.$image2->getClientOriginalExtension();
+            if (!file_exists('assets/images/image2')){
+                mkdir('assets/images/image2', true, 777);
+            }
+            $image2->move('assets/images/image2',$image2name);
+        }else{
+            $image2name = 'default.png';
+        }
+
         $service = new Service();
         $service->user_id = Auth::user()->id;
         $service->category_id = $request->category_id;
@@ -54,6 +65,7 @@ class ServiceController extends Controller
         $service->slug = $slug;
         $service->description = $request->description;
         $service->photo = $imagename;
+        $service->image2 = $image2name;
         $service->status = $request->status;
         $service->save();
 
@@ -84,6 +96,8 @@ class ServiceController extends Controller
         $slug = Str::slug($request->title);
         $service = Service::findOrFail($id);
         $image = $request->file('photo');
+
+        $image2 = $request->file('image2');
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
             if (file_exists('assets/images/services/'.$service->photo)){
@@ -96,6 +110,20 @@ class ServiceController extends Controller
         }else{
             $imagename = $service->photo;
         }
+
+        if(isset($image2)){
+            $image2name = $slug.'-'.uniqId().'.'.$image2->getClientOriginalExtension();
+            if (file_exists('assets/images/image2/'.$service->photo)){
+                unlink('assets/images/image2/'.$service->photo);
+            }
+            if (!file_exists('assets/images/image2')){
+                mkdir('assets/images/image2', true, 777);
+            }
+            $image2->move('assets/images/image2',$image2name);
+        }else{
+            $image2name = 'default.png';
+        }
+
         $service->user_id = Auth::user()->id;
         $service->category_id = $request->category_id;
         $service->title = $request->title;
@@ -103,6 +131,7 @@ class ServiceController extends Controller
         $service->slug = $slug;
         $service->description = $request->description;
         $service->photo = $imagename;
+        $service->image2 = $image2name;
         $service->status = $request->status;
         $service->save();
 

@@ -41,7 +41,7 @@ select.form-control:not([size]):not([multiple]) {
                     <span class="ti-user"></span>
                 </div>
                 <div class="widget-right">
-                    <h4 class="wiget-title">Total Patients</h4>
+                    <h4 class="wiget-title">Total Client</h4>
                     <span class="numeric color-red">{{$patietns->count()}}</span>
                     <p class="inc-dec mb-0"><span class="ti-angle-up"></span> </p>
                 </div>
@@ -123,9 +123,9 @@ select.form-control:not([size]):not([multiple]) {
 							<th>#SL</th>
 							<th>Sys. ID</th>
                             <th>Appoint Date</th>
-                            <th>PT. ID</th>
+                            <th>Client ID</th>
 							<!-- <th>Dr. Name</th> -->
-                            <th>PT. Name</th>
+                            <th>Client Name</th>
 							<th>Age</th>
 							<th>Address</th>
 							<th>Blood Group</th>

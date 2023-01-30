@@ -62,6 +62,13 @@
 							</div>
 						</div>
 					</div>
+					<div class="form-group col-md-6">
+						<div class="form-row">
+							<div class="form-group col-md-11" id="photo">
+								<input type="file" name="image2">
+							</div>
+						</div>
+					</div>
 					<div class="form-check col-md-6">
 						<div class="text-left">
 							<div class="custom-control custom-checkbox">
