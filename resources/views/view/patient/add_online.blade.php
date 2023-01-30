@@ -75,7 +75,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="phone">Phone</label> <span class="text-danger">*</span>
-								<input type="text" name="phone" placeholder="Phone" class="form-control form-control-sm" value="{{$appoint->phone}}" id="phone" minlength="11" maxlength="11" required>
+								<input type="text" name="phone" placeholder="Phone" class="form-control form-control-sm" value="{{$appoint->phone}}" id="phone" required>
 							</div>
 							<div class="form-group col-md-12">
 								<label for="blood_group">Blood Group</label>
