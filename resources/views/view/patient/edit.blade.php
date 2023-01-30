@@ -81,7 +81,7 @@ $all = Auth::user()->role->name == 'Doctor' ? route('doctor.patient.index') : ro
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="phone">Phone</label> <span class="text-danger">*</span>
-								<input type="text" name="phone" placeholder="Phone" class="form-control form-control-sm"  value="{{$patient->phone}}" minlength="11" maxlength="11" required>
+								<input type="text" name="phone" placeholder="Phone" class="form-control form-control-sm"  value="{{$patient->phone}}" required>
 							</div>
 							<div class="form-group col-md-12">
 								<label for="blood_group">Blood Group</label>
