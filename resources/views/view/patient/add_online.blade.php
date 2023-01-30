@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Add Patient')
+@section('title','Add Client')
 
 @push('css')
 	<link rel="stylesheet" href="{{asset('assets/css/mystyle.css')}}">

@@ -188,7 +188,7 @@ hr {
 				        {{$age}} 
 					@endif
 				</div>
-				<div class="col-sm-2 pt-0 pb-0 patient" style="border-right:1px solid #2b6749 !important;"><b>Sex:</b> {{$info->gender == 0?'Male':'Female'}}</div>
+				<div class="col-sm-2 pt-0 pb-0 patient" style="border-right:1px solid #2b6749 !important;"><b>Gender:</b> {{$info->gender == 0?'Male':'Female'}}</div>
 				<div class="col-sm-2 pt-0 pb-0 patient" style="border-right:1px solid #2b6749 !important;"><b>Addr:</b> {{$info->address}}</div>
 				<div class="col-sm-2 pt-0 pb-0"><b>Date:</b> {{date('d M Y', strtotime(now()))}}</div>
 			</div>
@@ -228,7 +228,9 @@ hr {
 							<h5 class="font-weight-bold" style="margin-bottom: 0px;">{{$appoint->dname}}</h5>
 							<span>{{$appoint->education}}</span><br>
 							<span>{{$appoint->specialist}}</span><br>
-							<span>BM&DC Reg. No: {{$appoint->regi_no}}</span>
+                            @if($appoint->regi_no)
+							<span>Gov. Aff. No: {{$appoint->regi_no}}</span>
+                                @endif
 						</div>
 					</div>
 					<div class="row mt-2 mb-2">
