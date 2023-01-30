@@ -29,6 +29,7 @@ class ServiceController extends Controller
         $this->validate($request, [
             'category_id' => 'required',
             'title' => 'required',
+            'sub_title' => 'required',
             'description' => 'required',
             'photo' => 'required'
         ]);
@@ -49,6 +50,7 @@ class ServiceController extends Controller
         $service->user_id = Auth::user()->id;
         $service->category_id = $request->category_id;
         $service->title = $request->title;
+        $service->sub_title = $request->sub_title;
         $service->slug = $slug;
         $service->description = $request->description;
         $service->photo = $imagename;
@@ -76,6 +78,7 @@ class ServiceController extends Controller
         $this->validate($request, [
             'category_id' => 'required',
             'title' => 'required',
+            'sub_title' => 'required',
             'description' => 'required'
         ]);
         $slug = Str::slug($request->title);
@@ -96,6 +99,7 @@ class ServiceController extends Controller
         $service->user_id = Auth::user()->id;
         $service->category_id = $request->category_id;
         $service->title = $request->title;
+        $service->sub_title = $request->sub_title;
         $service->slug = $slug;
         $service->description = $request->description;
         $service->photo = $imagename;

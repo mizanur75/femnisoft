@@ -44,7 +44,11 @@
                     </div>
 					<div class="form-group col-md-12">
 						<label for="patient-name">Title</label> <span class="text-danger">*</span>
-						<input type="text" value="{{old('title')}}" name="title" class="form-control form-control-sm" placeholder="Full Name" id="patient-name" required>
+						<input type="text" value="{{old('title')}}" name="title" class="form-control form-control-sm" placeholder="Title" id="patient-name" required>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="patient-name">Sub Title</label> <span class="text-danger">*</span>
+						<input type="text" value="{{old('sub_title')}}" name="sub_title" class="form-control form-control-sm" placeholder="sub title" id="patient-name" required>
 					</div>
 
 					<div class="form-group col-md-12">

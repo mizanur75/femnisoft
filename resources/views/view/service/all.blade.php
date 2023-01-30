@@ -64,6 +64,7 @@ select.form-control:not([size]):not([multiple]) {
 							<th>#SL</th>
 							<th>Image</th>
 							<th>Title</th>
+							<th>Sub Title</th>
 							{{--<th>Status</th>--}}
 							<th>Action</th>
 						</tr>
@@ -75,6 +76,7 @@ select.form-control:not([size]):not([multiple]) {
 							<td>{{$loop->index + 1}}</td>
 							<td><img src="{{asset('assets/images/services/'.$service->photo)}}" style="width: 50px;" alt=""></td>
 							<td>{{$service->title}}</td>
+							<td>{{$service->sub_title}}</td>
 							{{--<td>Status</td>--}}
 							<td class="text-center">
 {{--								<a href="{{route('doctor.web-service.show',$service->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}

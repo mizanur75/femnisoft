@@ -44,6 +44,10 @@
 						<label for="patient-name">Title</label> <span class="text-danger">*</span>
 						<input type="text" name="title" class="form-control form-control-sm" placeholder="Title" value="{{$service->title}}" required>
 					</div>
+					<div class="form-group col-md-12">
+						<label for="patient-name">Sub Title</label> <span class="text-danger">*</span>
+						<input type="text" name="sub_title" class="form-control form-control-sm" placeholder="sub title" value="{{$service->sub_title}}" required>
+					</div>
 
                     <div class="form-group col-md-12">
                         <label for="exampleFormControlTextarea1">Description</label> <span class="text-danger">*</span>
@@ -62,7 +66,7 @@
 									<div class="form-group col-md-5">
 										<label>Picture</label>
 										<canvas id="canvas" width="240" height="200" style="display:none;" class="border"></canvas>
-		    							<img src="{{asset('images/service/'.$service->photo)}}" height="200" width="240" alt="" id="photo">
+		    							<img src="{{asset('assets/images/services/'.$service->photo)}}" height="200" width="240" alt="" id="photo">
 									</div>
 								</div>
 							</div>

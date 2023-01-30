@@ -62,7 +62,7 @@
 									<div class="form-group col-md-5">
 										<label>Picture</label>
 										<canvas id="canvas" width="240" height="200" style="display:none;" class="border"></canvas>
-		    							<img src="{{asset('images/blog/'.$blog->photo)}}" height="200" width="240" alt="" id="photo">
+		    							<img src="{{asset('assets/images/blogs/'.$blog->photo)}}" height="200" width="240" alt="" id="photo">
 									</div>
 								</div>
 							</div>
