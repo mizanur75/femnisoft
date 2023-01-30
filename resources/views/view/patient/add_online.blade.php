@@ -176,23 +176,7 @@
 	        }
 		});
 	})
-
-	$("#ecoh_id").focusout(function(){
-		var ecoh_id = $(this).val();
-		$.ajax({
-			url : "{{route('agent.check_ecoh_id')}}",
-			method: "POST",
-			dataType: "JSON",
-			data: {ecoh_id:ecoh_id, _token:"{{csrf_token()}}"},
-			success: function(data){
-				if (data == 'exist') {
-					$("#exist").html('<span class="text-danger">ECOH ID already exist!');
-				}else{
-					$("#exist").html('<span class="text-success">Great!');
-				}
-			}
-		})
-	});
+    
 </script>
 <script>
 	$(function(){

@@ -64,6 +64,7 @@ class ServiceController extends Controller
         $service->sub_title = $request->sub_title;
         $service->slug = $slug;
         $service->description = $request->description;
+        $service->details = $request->details;
         $service->photo = $imagename;
         $service->image2 = $image2name;
         $service->status = $request->status;
@@ -130,6 +131,7 @@ class ServiceController extends Controller
         $service->sub_title = $request->sub_title;
         $service->slug = $slug;
         $service->description = $request->description;
+        $service->details = $request->details;
         $service->photo = $imagename;
         $service->image2 = $image2name;
         $service->status = $request->status;

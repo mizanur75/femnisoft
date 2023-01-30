@@ -54,19 +54,21 @@
                         <textarea name="description" id="nic-edit" class="form-control" cols="10" rows="3">{!! $service->description !!}</textarea>
                     </div>
 
+                    <div class="form-group col-md-12" id="uploadImage">
+                        <input type="file" name="photo">
+                        <img src="{{asset('assets/images/services/'.$service->photo)}}" height="200" width="240" alt="" id="photo">
+                    </div>
 
-					<div class="form-group col-md-6">
-						<div class="form-row">
-							<div class="form-group col-md-11" id="uploadImage">
-								<input type="file" name="photo">
-                                <img src="{{asset('assets/images/services/'.$service->photo)}}" height="200" width="240" alt="" id="photo">
-							</div>
-							<div class="form-group col-md-11" id="uploadImage">
-								<input type="file" name="image2">
-                                <img src="{{asset('assets/images/image2/'.$service->image2)}}" height="200" width="240" alt="" id="photo">
-							</div>
-						</div>
-					</div>
+
+                    <div class="form-group col-md-12">
+                        <label for="exampleFormControlTextarea1">Description 2</label> <span class="text-danger">*</span>
+                        <textarea name="details" id="nic-edit2" class="form-control" cols="10" rows="3">{!! $service->details !!}</textarea>
+                    </div>
+
+                    <div class="form-group col-md-12" id="uploadImage">
+                        <input type="file" name="image2">
+                        <img src="{{asset('assets/images/image2/'.$service->image2)}}" height="200" width="240" alt="" id="photo">
+                    </div>
 
 					<div class="form-check col-md-12 mb-2">
 						<div class="text-left">
@@ -92,5 +94,8 @@
     <script src="{{asset('assets/js/nicEdit.js')}}"></script>
     <script type="text/javascript">
         bkLib.onDomLoaded(function() { new nicEditor().panelInstance('nic-edit'); });
+    </script>
+    <script type="text/javascript">
+        bkLib.onDomLoaded(function() { new nicEditor().panelInstance('nic-edit2'); });
     </script>
 @endpush

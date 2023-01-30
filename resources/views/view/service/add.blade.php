@@ -55,21 +55,25 @@
 						<label for="exampleFormControlTextarea1">Description</label> <span class="text-danger">*</span>
 						<textarea name="description" id="nic-edit" class="form-control" cols="10" rows="3">{{old('description')}}</textarea>
 					</div>
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-12">
 						<div class="form-row">
 							<div class="form-group col-md-11" id="photo">
 								<input type="file" name="photo">
 							</div>
 						</div>
 					</div>
-					<div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
+                        <label for="exampleFormControlTextarea1">Description 2</label> <span class="text-danger">*</span>
+                        <textarea name="details" id="nic-edit2" class="form-control" cols="10" rows="3">{{old('details')}}</textarea>
+                    </div>
+					<div class="form-group col-md-12">
 						<div class="form-row">
 							<div class="form-group col-md-11" id="photo">
 								<input type="file" name="image2">
 							</div>
 						</div>
 					</div>
-					<div class="form-check col-md-6">
+					<div class="form-check col-md-12">
 						<div class="text-left">
 							<div class="custom-control custom-checkbox">
 								<input class="custom-control-input" type="checkbox" id="ex-check-2" name="status" value="1" required>
@@ -93,5 +97,8 @@
     <script src="{{asset('assets/js/nicEdit.js')}}"></script>
     <script type="text/javascript">
         bkLib.onDomLoaded(function() { new nicEditor().panelInstance('nic-edit'); });
+    </script>
+    <script type="text/javascript">
+        bkLib.onDomLoaded(function() { new nicEditor().panelInstance('nic-edit2'); });
     </script>
 @endpush
