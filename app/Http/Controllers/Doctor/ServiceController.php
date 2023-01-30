@@ -37,10 +37,10 @@ class ServiceController extends Controller
 
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!file_exists('images/service')){
-                mkdir('images/service', true, 777);
+            if (!file_exists('assets/images/services')){
+                mkdir('assets/images/services', true, 777);
             }
-            $image->move('images/service',$imagename);
+            $image->move('assets/images/services',$imagename);
         }else{
             $imagename = '';
         }
@@ -83,13 +83,13 @@ class ServiceController extends Controller
         $image = $request->file('photo');
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (file_exists('images/service/'.$service->photo)){
-                unlink('images/service/'.$service->photo);
+            if (file_exists('assets/images/services/'.$service->photo)){
+                unlink('assets/images/services/'.$service->photo);
             }
-            if (!file_exists('images/service')){
-                mkdir('images/service', true, 777);
+            if (!file_exists('assets/images/services')){
+                mkdir('assets/images/services', true, 777);
             }
-            $image->move('images/service',$imagename);
+            $image->move('assets/images/services',$imagename);
         }else{
             $imagename = $service->photo;
         }

@@ -73,7 +73,7 @@ select.form-control:not([size]):not([multiple]) {
 						@foreach($blogs as $blog)
 						<tr>
 							<td>{{$loop->index + 1}}</td>
-							<td><img src="{{asset('images/blog/'.$blog->photo)}}" style="width: 50px;" alt=""></td>
+							<td><img src="{{asset('assets/images/blogs/'.$blog->photo)}}" style="width: 50px;" alt=""></td>
 							<td>{{$blog->title}}</td>
 							{{--<td>Status</td>--}}
 							<td class="text-center">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','All Services')
+@section('title','All Testimonial')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -21,7 +21,7 @@ select.form-control:not([size]):not([multiple]) {
         <div class="widget-area-2 proclinic-box-shadow text-right pt-2">
         	<div class="row">
         		<div class="col-md-1 mt-2">
-		            <a href="{{route('doctor.web-service.create')}}" class="btn btn-padding btn-sm btn-success"><i class="fa fa-plus"></i> Add New</a>
+		            <a href="{{route('doctor.web-testimonial.create')}}" class="btn btn-padding btn-sm btn-success"><i class="fa fa-plus"></i> Add New</a>
 		        </div>
         	</div>
         </div>
@@ -63,22 +63,22 @@ select.form-control:not([size]):not([multiple]) {
 						<tr>
 							<th>#SL</th>
 							<th>Image</th>
-							<th>Title</th>
-							{{--<th>Status</th>--}}
+							<th>Name</th>
+							<th>Speech</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@if($services)
-						@foreach($services as $service)
+						@if($testimonials)
+						@foreach($testimonials as $testimonial)
 						<tr>
 							<td>{{$loop->index + 1}}</td>
-							<td><img src="{{asset('assets/images/services/'.$service->photo)}}" style="width: 50px;" alt=""></td>
-							<td>{{$service->title}}</td>
-							{{--<td>Status</td>--}}
+							<td><img src="{{asset('assets/images/testimonials/'.$testimonial->photo)}}" style="width: 50px;" alt=""></td>
+							<td>{{$testimonial->name}}</td>
+							<td>{{$testimonial->description}}</td>
 							<td class="text-center">
-{{--								<a href="{{route('doctor.web-service.show',$service->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}
-        						<a href="{{route('doctor.web-service.edit',$service->id)}}" class="btn btn-padding btn-sm btn-primary"><i class="fa fa-edit"></i>
+{{--								<a href="{{route('doctor.web-testimonial.show',$testimonial->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}
+        						<a href="{{route('doctor.web-testimonial.edit',$testimonial->id)}}" class="btn btn-padding btn-sm btn-primary"><i class="fa fa-edit"></i>
         						</a>
 							</td>
 						</tr>

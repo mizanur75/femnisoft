@@ -36,10 +36,10 @@ class BlogController extends Controller
 
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!file_exists('images/blog')){
-                mkdir('images/blog', true, 777);
+            if (!file_exists('assets/images/blogs')){
+                mkdir('assets/images/blogs', true, 777);
             }
-            $image->move('images/blog',$imagename);
+            $image->move('assets/images/blogs',$imagename);
         }else{
             $imagename = '';
         }
@@ -82,13 +82,16 @@ class BlogController extends Controller
         $image = $request->file('photo');
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (file_exists('images/blog/'.$blog->photo)){
-                unlink('images/blog/'.$blog->photo);
+            if (file_exists('assets/images/blogs/'.$blog->photo)){
+                if ($blog->photo){
+
+                    unlink('assets/images/blogs/'.$blog->photo);
+                }
             }
-            if (!file_exists('images/blog')){
-                mkdir('images/blog', true, 777);
+            if (!file_exists('assets/images/blogs')){
+                mkdir('assets/images/blogs', true, 777);
             }
-            $image->move('images/blog',$imagename);
+            $image->move('assets/images/blogs',$imagename);
         }else{
             $imagename = $blog->photo;
         }
