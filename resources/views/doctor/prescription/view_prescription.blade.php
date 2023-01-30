@@ -118,7 +118,7 @@ hr {
 				
 				<div class="row mb-2 mr-2">
 					<div class="col-sm-12 col-md-12">
-						<strong>Patient History:</strong> <hr> <span class="color-black">{!!$info->cc!!}</span>
+						<strong>Client History:</strong> <hr> <span class="color-black">{!!$info->cc!!}</span>
 					</div>
 				</div>
 			</div>

@@ -34,7 +34,7 @@
 					</div>
 					<div class="form-group col-md-6">
 						<label for="age">Speciality</label>
-						<input type="text" name="specialist" class="form-control form-control-sm" placeholder="Ex. Specialist in Medicine, Specialist in Cardiology etc.">
+						<input type="text" name="specialist" class="form-control form-control-sm" placeholder="Ex. Field of speciality">
 					</div>
 					<div class="form-group col-md-4">
 						<label for="education">Education</label>
@@ -42,7 +42,7 @@
 					</div>
 					<div class="form-group col-md-4">
 						<label for="regi_no">BM&DC Reg. No.</label>
-						<input type="text" name="regi_no" class="form-control form-control-sm" id="regi_no" placeholder="BM&DC Reg. Number">
+						<input type="text" name="regi_no" class="form-control form-control-sm" id="regi_no" placeholder="Enter your Gov. affiliation Number(if any)">
 					</div>
 					<div class="form-group col-md-4">
 						<label for="experience">Experience</label>

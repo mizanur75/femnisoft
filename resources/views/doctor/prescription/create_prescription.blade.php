@@ -275,7 +275,7 @@ hr {
 
 			<div class="row" style="border-top:1px solid #2b6749; padding:5px;"></div>
 			<div class="col-sm-12 text-center" style="padding: 0px 0px 10px 0px;">
-				Primex Info Sys Ltd | Mobile: 01766000000 | E-mail: primexbd@gmail.com <br>Developed & Maintenance by <a href="https://primex-bd.com" target="_blank"> Primex Information Systems Ltd</a>
+				Developed & Maintenance by <a href="https://primex-bd.com" target="_blank"> Primex Information Systems Ltd</a>
 			</div>
 		</div>
 	</div>

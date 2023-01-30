@@ -253,13 +253,13 @@ hr {
 					<input type="radio" id="day" name="meet_day" value="day" {{substr($info->next_meet, -3) == 'day' ? 'checked' : ''}}> <label for="day">দিন</label>
 					<input type="radio" id="week" name="meet_day" value="wek" {{substr($info->next_meet, -3) == 'wek' ? 'checked' : ''}}> <label for="week">সপ্তাহ</label>
 					<input type="radio" id="month" name="meet_day" value="mon" {{substr($info->next_meet, -3) == 'mon' ? 'checked' : ''}}> <label for="month">মাস</label>
-					  পর আসবেন। Bring the document with you on your next visit. Thank You.
+					   Bring the document with you on your next visit. Thank You.
 				</div>
 			</div>
 
 			<div class="row" style="border-top:1px solid #2b6749; padding:5px;"></div>
 			<div class="col-sm-12 text-center" style="padding: 0px 0px 10px 0px;">
-				Primex Info Sys Ltd | মোবাইল: 01766000000 | ইমেইল: primexbd@gmail.com <br>Prescription Developed & Maintenance by <a href="https://primex-bd.com" target="_blank"> Primex Info Sys Ltd</a>
+				Prescription Developed & Maintenance by <a href="https://primex-bd.com" target="_blank"> Primex Info Sys Ltd</a>
 			</div>
 		</div>
 	</div>

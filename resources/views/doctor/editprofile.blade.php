@@ -39,15 +39,15 @@
 					</div>
 					<div class="form-group col-md-3">
 						<label for="education">Education</label>
-						<input type="text" name="education" value="{{$doctor->education}}" class="form-control form-control-sm" id="education">
+						<input type="text" name="education" placeholder="Enter your education" value="{{$doctor->education}}" class="form-control form-control-sm" id="education">
 					</div>
 					<div class="form-group col-md-3">
-						<label for="regi_no">BM&DC Reg. No.</label>
-						<input type="text" name="regi_no" value="{{$doctor->regi_no}}" class="form-control form-control-sm" id="regi_no">
+						<label for="regi_no">Gov. Aff. No.</label>
+						<input type="text" name="regi_no" placeholder="Enter your Gov. affiliation Number(if any) " value="{{$doctor->regi_no}}" class="form-control form-control-sm" id="regi_no">
 					</div>
 					<div class="form-group col-md-2">
 						<label for="experience">Experience</label>
-						<input type="experience" name="experience" value="{{$doctor->experience}}" class="form-control form-control-sm" id="experience">
+						<input type="experience" name="experience" placeholder="Year of Experience" value="{{$doctor->experience}}" class="form-control form-control-sm" id="experience">
 					</div>
 					<div class="form-group col-md-5">
 						<label for="work_station">Work Station</label>
@@ -65,7 +65,7 @@
 						<select name="chamber_id" class="form-control form-control-sm" id="chamber_id">
 							<option selected="false" disabled>Select Chamber</option>
 							@foreach($chambers as $chamber)
-							<option value="{{$chamber->id}}" {{$chamber->id == $doctor->chamber_id ? 'selected':''}}>{{$chamber->name}}, {{$chamber->address}}-{{$chamber->post_code}}</option>
+							<option value="{{$chamber->id}}" {{$chamber->id == $doctor->chamber_id ? 'selected':''}}>{{$chamber->name}} {{$chamber->address}} {{$chamber->post_code}}</option>
 							@endforeach
 						</select>
 					</div>

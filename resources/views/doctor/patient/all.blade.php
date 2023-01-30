@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title',$title.' Patient')
+@section('title',$title.' Client')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -74,7 +74,7 @@ select.form-control:not([size]):not([multiple]) {
                     </div>
                     <div class="col-md-9">
                         <form action="{{route('doctor.patient_search')}}" method="GET">
-                        <input type="text" name="patient_search" class="form-control form-control-sm" placeholder="Search (Input patient name, phone or PATIENT ID and press enter)">
+                        <input type="text" name="patient_search" class="form-control form-control-sm" placeholder="Search (Input Client name, phone or Client ID and press enter)">
                         </form>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ select.form-control:not([size]):not([multiple]) {
 						<tr class="text-center">
 							<th>#SL</th>
 							<th>Enr. Date</th>
-							<th>PATIENT ID</th>
+							<th>Client ID</th>
 							<th>Name</th>
 							<th>Phone</th>
 							<th>Age (Y)</th>

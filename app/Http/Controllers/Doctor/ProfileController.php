@@ -56,11 +56,6 @@ class ProfileController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'specialist' => 'required',
-            'education' => 'required',
-            'regi_no' => 'required',
-            'experience' => 'required',
-            // 'work_station' => 'required',
-            'chamber_id' => 'required',
         ]);
         $image = $request->file('image');
         $signature = $request->file('signature');
@@ -124,11 +119,6 @@ class ProfileController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'specialist' => 'required',
-            'education' => 'required',
-            'regi_no' => 'required',
-            'experience' => 'required',
-            // 'work_station' => 'required',
-            'chamber_id' => 'required',
         ]);
         $image = $request->file('image');
         $signature = $request->file('signature');

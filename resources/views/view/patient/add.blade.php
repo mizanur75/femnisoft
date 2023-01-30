@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Add Patient')
+@section('title','Add Client')
 
 @push('css')
 	<link rel="stylesheet" href="{{asset('assets/css/mystyle.css')}}">
@@ -13,7 +13,7 @@
 	<!-- Widget Item -->
 	<div class="col-md-12">
         <div class="widget-area-2 proclinic-box-shadow text-right pt-2">
-            <a href="{{$auth == 'Agent' ? route('agent.patient.index') : route('doctor.patient.index')}}" class="btn btn-padding btn-sm btn-success"><i class="fa fa-list"></i> All Patient</a>
+            <a href="{{$auth == 'Agent' ? route('agent.patient.index') : route('doctor.patient.index')}}" class="btn btn-padding btn-sm btn-success"><i class="fa fa-list"></i> All Client</a>
         </div>
     </div>
 	<!-- Widget Item -->

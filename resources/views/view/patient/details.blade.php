@@ -127,7 +127,7 @@ $store = $auth == 'Doctor' ? route('doctor.patient-info.store') : route('agent.p
 	<!-- Patient Details -->
 	<div class="col-md-6">
 		<div class="widget-area-2 proclinic-box-shadow">
-			<h3 class="widget-title">Patient Details <a href="{{$auth == 'Agent' ? route('agent.patient.edit', \Crypt::encrypt($patient->id)) : route('doctor.patient.edit',$patient->id)}}" class="btn btn-padding btn-sm btn-info"> <i class="fa fa-edit"></i> </a></h3>
+			<h3 class="widget-title">Client Details <a href="{{$auth == 'Agent' ? route('agent.patient.edit', \Crypt::encrypt($patient->id)) : route('doctor.patient.edit',$patient->id)}}" class="btn btn-padding btn-sm btn-info"> <i class="fa fa-edit"></i> </a></h3>
 			<div class="table-responsive">
 				<table class="table table-bordered table-striped">
 					<tbody>
@@ -139,7 +139,7 @@ $store = $auth == 'Doctor' ? route('doctor.patient-info.store') : route('agent.p
 								<table class="table table-bordered table-striped">
 									<tbody>
 										<tr>
-											<td><strong>PATIENT ID</strong></td>
+											<td><strong>Client ID</strong></td>
 											<td>{{$patient->centre_patient_id}}</td>
 										</tr>
 										<tr>
@@ -153,7 +153,7 @@ $store = $auth == 'Doctor' ? route('doctor.patient-info.store') : route('agent.p
 											<td>{{$age}}</td>
 										</tr>
 										<tr>
-											<td><strong>Sex</strong></td>
+											<td><strong>Gender</strong></td>
 											<td>
 												{{$patient->gender == 0 ? 'Male':'Female'}}
 											</td>

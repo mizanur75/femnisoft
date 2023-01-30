@@ -46,7 +46,7 @@ select.form-control:not([size]):not([multiple]) {
 	<!-- Widget Item -->
 	<div class="col-md-6">
 		<div class="widget-area-2 proclinic-box-shadow">
-			<h3 class="widget-title">Patient Info</h3>
+			<h3 class="widget-title">Client Info</h3>
 			<div class="table-responsive">
 				<table class="table table-bordered table-striped">
 					<tbody>
@@ -57,7 +57,7 @@ select.form-control:not([size]):not([multiple]) {
 								<table class="table table-bordered table-striped">
 									<tbody>
 										<tr>
-											<td><strong>PATIENT ID</strong></td>
+											<td><strong>Client ID</strong></td>
 											<td>{{$patient->centre_patient_id}}</td>
 										</tr>
 										<tr>

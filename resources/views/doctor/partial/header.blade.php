@@ -67,11 +67,11 @@
                 </li>
                 @if(\App\Model\Doctor::where('user_id', Auth::user()->id)->count() > 0)
                 <li class="nav-item dropdown {{Request::is('doctor/patient*')?'active':''}}">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wheelchair"></i> Patients</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wheelchair"></i> Clients</a>
                     <div class="dropdown-menu">
                         <!-- <a class="dropdown-item" href="{{route('doctor.address.index')}}">Address</a> -->
-                        <a class="dropdown-item" href="{{route('doctor.patient.create')}}">Add Patient</a>
-                        <a class="dropdown-item" href="{{route('doctor.patient.index')}}">All Patients</a>
+                        <a class="dropdown-item" href="{{route('doctor.patient.create')}}">Add Client</a>
+                        <a class="dropdown-item" href="{{route('doctor.patient.index')}}">All Clients</a>
                         <!-- <a class="dropdown-item" href="{{route('doctor.mypatient')}}">My Patients</a> -->
                     </div>
                 </li>

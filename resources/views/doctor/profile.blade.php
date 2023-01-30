@@ -85,7 +85,7 @@ select.form-control:not([size]):not([multiple]) {
                                 </tr> -->
                                 <tr>
                                     <td><strong>Work Station</strong></td>
-                                    <td>{{$doctor->chamber}}, {{$doctor->chamber_address}}-{{$doctor->chamber_post_code}}</td>
+                                    <td>{{$doctor->chamber??null}}, {{$doctor->chamber_address??null}}-{{$doctor->chamber_post_code??null}}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Experience</strong></td>
@@ -96,7 +96,7 @@ select.form-control:not([size]):not([multiple]) {
                                     <td>{{$doctor->education}}</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>BM&DC Reg. No.</strong> </td>
+                                    <td><strong>Gov. Aff. No.</strong> </td>
                                     <td>{{$doctor->regi_no}}</td>
                                 </tr>
                                 <tr>
@@ -136,7 +136,7 @@ select.form-control:not([size]):not([multiple]) {
 							</th> --}}
 							<th>#SL</th>
 							<th>ID</th>
-                            <th>PT. ID</th>
+                            <th>Client ID</th>
 							<th>Name</th>
 							<th>Phone</th>
 							<th>Age</th>
