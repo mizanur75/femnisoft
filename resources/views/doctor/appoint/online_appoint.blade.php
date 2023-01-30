@@ -72,7 +72,7 @@ select.form-control:not([size]):not([multiple]) {
 						<tr class="text-center">
 							<th>#SL</th>
 							<!-- <th>Dr. Name</th> -->
-							<th>Pt. Name</th>
+							<th>Client Name</th>
 							<th>Phone</th>
 							<th>Create Date</th>
 							<th>Appt. Date</th>
@@ -100,7 +100,7 @@ select.form-control:not([size]):not([multiple]) {
 									</a>
 								@else
 									<a href="{{route('doctor.patient_exist',$appoint->id)}}" class="btn btn-sm btn-padding btn-outline-info" onclick="return confirm('Are you sure!')">
-										<i class="fa fa-check-circle"></i> Make Advice
+										<i class="fa fa-check-circle"></i> Create Advice
 									</a>
 								@endif
 							</td>
