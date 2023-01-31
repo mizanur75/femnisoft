@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $title.' Prescription')
+@section('title', $title.' Advice')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -71,23 +71,19 @@ select.form-control:not([size]):not([multiple]) {
 
 	 <div class="col-md-12">
 		<div class="widget-area-2 proclinic-box-shadow">
-			<h3 class="widget-title">Patient Prescription</h3>
+			<h3 class="widget-title">Client Advice</h3>
 			<div class="table-responsive">
 				<table id="infotable" class="table table-bordered table-striped table-sm">
 					<thead>
 						<tr class="text-center">
 							<th>#SL</th>
-							<th>ECOH ID</th>
+							<th>ID</th>
 							<th>Visit</th>
-							<th>Pt. Type</th>
-							<th>Patient's Name</th>
+							<th>Client's Name</th>
 							<th>Age (Y)</th>
 							<th>Address</th>
 							<th>Consult. Date</th>
-							<th width="15%">Diagnosis</th>
-							<th>Doctor's Name</th>
-							<th>Report(s)</th>
-							<th>Prescription(s)</th>
+							<th>Advice(s)</th>
 						</tr>
 					</thead>
 					<tbody id="tbody">
@@ -96,7 +92,6 @@ select.form-control:not([size]):not([multiple]) {
 								<td class="text-center">{{$loop->index +1}}</td>
 								<td class="text-center">{{$history->ecohid}}</td>
 								<td class="text-center">{{$history->visit}}</td>
-								<td class="text-center">{{$history->mem_type == null ? ($history->reg_mem == null ? 'OPD' : $history->reg_mem) : $history->mem_type}}</td>
 								<td>{{$history->patient_name}}</td>
 								<td class="text-center">
 								@php
@@ -112,32 +107,12 @@ select.form-control:not([size]):not([multiple]) {
 									{{$history->address}}
 								</td>
 								<td class="text-center">{{date('d M Y', strtotime($history->created_at))}}</td>
-                                <td class="text-center" width="15%">{{$history->diagnosis}}</td>
-								<td class="text-center">
-									{{$history->name}}
-									<p style="font-size: 11px;">{{$history->spcialist}}</p>
-								</td>
-								<td class="text-center">
-									@if(\App\Model\Report::where('history_id',$history->id)->count() > 0)
-									<a href="{{route('doctor.reports',$history->id)}}" class="btn btn-padding btn-sm btn-outline-info mb-0" target="_blank"><i class="fa fa-eye"></i> See</a>
-									@else
-										@if($history->test != null)
-										<a href="{{route('doctor.add_reports',$history->id)}}" target="_blank" class="btn btn-padding btn-sm btn-outline-warning"><i class="fa fa-plus"></i> Add</button>
-										@else
-										<button class="btn btn-padding btn-sm btn-outline-danger">No Report</button>
-
-										@endif
-									@endif
-									@if($history->suggest_follow_up == '0')
-                                	<button onclick="addEdit('{{$history->id}}')" class="btn btn-padding btn-sm btn-outline-warning mb-0" ><i class="fa fa-plus" ></i >/<i class="fa fa-edit" ></i > </button>
-									@endif
-								</td>
 								<td class="text-center">
 									@if(\App\Model\Prescription::where('history_id',$history->id)->count() > 0)
 									<a href="{{Auth::user()->role->id == 2 ? route('agent.prescription',\Crypt::encrypt($history->id)) : route('doctor.prescription.show',$history->id)}}" class="btn btn-padding btn-sm btn-outline-info mb-0" target="_blank"><i class="fa fa-eye"></i> See</a>
 									@else
 										@if(Auth::user()->role->id == 3 && $history->did == Auth::user()->id)
-											<a href="{{ route('doctor.prescription.edit',$history->request_id) }}" class="btn btn-padding btn-sm btn-outline-info mb-0"><i class="fa fa-eye"></i> Write Prescription</a>
+											<a href="{{ route('doctor.prescription.edit',$history->request_id) }}" class="btn btn-padding btn-sm btn-outline-info mb-0"><i class="fa fa-eye"></i> Write Advice</a>
 										@else
 										<a href="#" class="btn btn-padding btn-sm btn-outline-warning mb-0"><i class="fa fa-eye"></i> Not Ready</a>
 										@endif

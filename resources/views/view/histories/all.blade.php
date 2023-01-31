@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $title.' Prescription')
+@section('title', $title.' Advice')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -94,17 +94,15 @@ select.form-control:not([size]):not([multiple]) {
 					<thead>
 						<tr class="text-center">
 							<th>#SL</th>
-							<th>ECOH ID</th>
+							<th>ID</th>
 							<th>Visit</th>
-							<th>Pt. Type</th>
-							<th>Patient's Name</th>
+							<th>Client's Name</th>
 							<th>Age (Y)</th>
 							<th>Address</th>
 							<th>Consult. Date</th>
 							<th width="15%">Diagnosis</th>
-							<th>Doctor's Name</th>
 							<th>Report(s)</th>
-							<th>Prescription(s)</th>
+							<th>Advice(s)</th>
 						</tr>
 					</thead>
 					<tbody id="tbody">
@@ -171,7 +169,6 @@ select.form-control:not([size]):not([multiple]) {
                 {data: "id", name: 'id'},
                 {data: "ecohid", name: 'ecohid'},
                 {data: "visit", name: 'visit'},
-                {data: "mem_type", name: 'mem_type'},
                 {data: "patient_name", name: 'patient_name'},
                 {data: "age", name: 'age'},
                 {data: "address", name: 'address'},

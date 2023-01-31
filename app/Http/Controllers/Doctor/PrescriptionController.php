@@ -388,7 +388,6 @@ class PrescriptionController extends Controller
         $doctors = Doctor::where('status',1)->get();
         $histories = DB::table('histories as hi')
             ->join('doctors as d','d.id','=','hi.doctor_id')
-            ->join('patient_infos as pi','pi.id','=','hi.patient_info_id')
             ->join('patients as p','p.id','=','hi.patient_id')
             ->join('addresses as ad','ad.id','=','p.address_id')
             ->join('users as u','u.id','=','d.user_id')
@@ -398,7 +397,7 @@ class PrescriptionController extends Controller
                 ->orWhere('p.centre_patient_id','LIKE','%'.$search_value.'%');
             })
             ->orderBy('hi.id','DESC')
-            ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','pi.mem_type as mem_type','pi.id as pid','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
+            ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
             ->paginate($default_value);
         return view('view.histories.all_press',compact('title','doctors','default_value','histories','start','finish','doctor_id'));
     }
@@ -416,12 +415,11 @@ class PrescriptionController extends Controller
         $doctors = Doctor::where('status',1)->get();
         $histories = DB::table('histories as hi')
                         ->join('doctors as d','d.id','=','hi.doctor_id')
-                        ->join('patient_infos as pi','pi.id','=','hi.patient_info_id')
                         ->join('patients as p','p.id','=','hi.patient_id')
                         ->join('addresses as ad','ad.id','=','p.address_id')
                         ->join('users as u','u.id','=','d.user_id')
                         ->orderBy('hi.id','DESC')
-                        ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','pi.mem_type as mem_type','pi.id as pid','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
+                        ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
                         ->paginate($default_value);
         // if($request->ajax()){
         //     $histories = DB::table('histories as hi')
@@ -515,47 +513,43 @@ class PrescriptionController extends Controller
         if ($start == null && $finish == null && $doctor_id == !null) {
             $histories = DB::table('histories as hi')
                         ->join('doctors as d','d.id','=','hi.doctor_id')
-                        ->join('patient_infos as pi','pi.id','=','hi.patient_info_id')
                         ->join('patients as p','p.id','=','hi.patient_id')
                         ->join('addresses as ad','ad.id','=','p.address_id')
                         ->join('users as u','u.id','=','d.user_id')
                         ->orderBy('hi.id','DESC')
                         ->where('hi.doctor_id',$doctor_id)
-                        ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','pi.mem_type as mem_type','pi.id as pid','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
+                        ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
                         ->paginate($default_value);
         }elseif ($start && $finish && $doctor_id == null){
             $histories = DB::table('histories as hi')
                 ->join('doctors as d','d.id','=','hi.doctor_id')
-                ->join('patient_infos as pi','pi.id','=','hi.patient_info_id')
                 ->join('patients as p','p.id','=','hi.patient_id')
                 ->join('addresses as ad','ad.id','=','p.address_id')
                 ->join('users as u','u.id','=','d.user_id')
                 ->orderBy('hi.id','DESC')
                  ->whereBetween('hi.created_at', [$start, $finish])
-                ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','pi.mem_type as mem_type','pi.id as pid','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
+                ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
                 ->paginate($default_value);
         }elseif ($start == null && $finish == null && $doctor_id == null) {
             $histories = DB::table('histories as hi')
                         ->join('doctors as d','d.id','=','hi.doctor_id')
-                        ->join('patient_infos as pi','pi.id','=','hi.patient_info_id')
                         ->join('patients as p','p.id','=','hi.patient_id')
                         ->join('addresses as ad','ad.id','=','p.address_id')
                         ->join('users as u','u.id','=','d.user_id')
                         ->orderBy('hi.id','DESC')
-                        ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','pi.mem_type as mem_type','pi.id as pid','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
+                        ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
                         ->paginate($default_value);
         }else{
 
             $histories = DB::table('histories as hi')
                             ->join('doctors as d','d.id','=','hi.doctor_id')
-                            ->join('patient_infos as pi','pi.id','=','hi.patient_info_id')
                             ->join('patients as p','p.id','=','hi.patient_id')
                             ->join('addresses as ad','ad.id','=','p.address_id')
                             ->join('users as u','u.id','=','d.user_id')
                             ->orderBy('hi.id','DESC')
                             ->whereBetween('hi.created_at', [$start, $finish])
                             ->where('hi.doctor_id',$doctor_id)
-                            ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','pi.mem_type as mem_type','pi.id as pid','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
+                            ->select('hi.id as id','hi.visit as visit','hi.diagnosis as diagnosis','hi.test as test','hi.created_at as created_at','hi.request_id as request_id','hi.suggest_follow_up as suggest_follow_up','hi.age as age','u.name as name','d.specialist as spcialist','p.name as patient_name','p.reg_mem as reg_mem','p.age as dob','ad.name as address','p.centre_patient_id as ecohid','d.user_id as did')
                             ->paginate($default_value);
         }
         return view('view.histories.all_press',compact('histories','title','doctors','doctor_id','start','finish','default_value'));

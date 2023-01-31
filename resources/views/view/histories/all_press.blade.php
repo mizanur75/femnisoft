@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $title.' Prescription')
+@section('title', $title.' Advice')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -56,8 +56,8 @@ select.form-control:not([size]):not([multiple]) {
 						</div>
 						<div class="col-md-4">
 							<select name="doctor_id" id="doctor_id" onchange="this.form.submit()" style="height: 30px;" class="form-control form-control-sm w-100">
-								<option selected="false" disabled>Select Doctor</option>
-                                <option value="">All Doctor</option>
+								<option selected="false" disabled>-- Select --</option>
+                                <option value="">All</option>
                                 @foreach($doctors as $doctor)
                                     <option value="{{$doctor->id}}" {{$doctor_id == $doctor->id ? 'Selected' : ''}}> {{$doctor->user->name}}</option>
                                 @endforeach
@@ -88,7 +88,7 @@ select.form-control:not([size]):not([multiple]) {
                         <form action="{{route('doctor.search_prescription')}}" method="GET">
                         	<div class="row" style="margin-top: -8px;">
 	                        	<div class="col-md-9">
-	                        		<input type="text" name="search_prescription" class="form-control form-control-sm" placeholder="Search (Input patient name, phone or ECOH ID)">
+	                        		<input type="text" name="search_prescription" class="form-control form-control-sm" placeholder="Search (Input Client name, phone or ID)">
 	                        	</div>
 	                        	<div class="col-md-3">
 	                        		<button class="btn btn-block btn-info float-right"> <i class="fa fa-search"></i> Search</button>
@@ -101,9 +101,9 @@ select.form-control:not([size]):not([multiple]) {
 					<thead>
 						<tr class="text-center">
 							<th>#SL</th>
-							<th>PT. ID</th>
+							<th>ID</th>
 							<th>Visit</th>
-							<th>Patient's Name</th>
+							<th>Client's Name</th>
 							<th>Age (Y)</th>
 							<th>Address</th>
 							<th>Consult. Date</th>
@@ -194,259 +194,6 @@ select.form-control:not([size]):not([multiple]) {
 <script src="{{asset('assets/datatable/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('datetime_picker/jquery-ui.js')}}"></script>
 <script>
-    // $(function(){
-    //     $("#infotable").dataTable({
-    //         "order": [[ 0, "desc" ]],
-    //         pageLength : 50,
-    //         lengthMenu: [[50, 10, 20, 100, 500], [50, 10, 20, 100, 500]],
-    //         serverSide: true,
-    //         ajax: {
-    //             url: "{{route('doctor.allprescription')}}",
-
-    //             data: function (data) {
-    //                 data.params = {
-    //                     sac: "hello"
-    //                 }
-    //             }
-    //         },
-    //         buttons: true,
-    //         processing: true,
-    //         searching: true,
-    //         columns: [
-    //             // {data: 'DT_RowIndex', name: 'DT_Row_Index' },
-    //             {data: "id", name: 'id'},
-    //             {data: "ecohid", name: 'ecohid'},
-    //             {data: "visit", name: 'visit'},
-    //             {data: "mem_type", name: 'mem_type'},
-    //             {data: "patient_name", name: 'patient_name'},
-    //             {data: "age", name: 'age'},
-    //             {data: "address", name: 'address'},
-    //             {data: "created_at", name: 'created_at'},
-    //             {data: "diagnosis", name: 'diagnosis'},
-    //             {data: "name", name: 'name'},
-    //             {data: "reports", name: 'reports', orderable: false, searchable: false},
-    //             {data: "prescription", name: 'prescription', orderable: false, searchable: false},
-
-    //         ],
-    //         'columnDefs': [
-    //             {"targets": 0, "className": "text-center"},
-    //             {"targets": 1, "className": "text-center"},
-    //             {"targets": 2, "className": "text-center"},
-    //             {"targets": 4, "className": "text-center"},
-    //             {"targets": 5, "className": "text-center"},
-    //             {"targets": 6, "className": "text-center"},
-    //             {"targets": 7, "className": "text-center"},
-    //             {"targets": 8, "className": "text-center"},
-    //             {"targets": 9, "className": "text-center"},
-    //             {"targets": 10, "className": "text-center"},
-    //             {"targets": 11, "className": "text-center"},
-    //         ],
-    //     });
-    // });
-
-    
-    function addEdit(story_id){
-     	$("#reports").empty();
-    	$("#reportForEdit").modal('show');
-    	$.ajax({
-    		url: "{{url('/')}}/get-report-for-export/"+history_id,
-    		method: "GET",
-    		success: function(history){
-    			var reports =
-    				'<input type="hidden" name="history_id" value="'+history_id+'"/>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-wbc" class="col-form-label">WBC</label>'+
-							'<input type="text" name="wbc" class="form-control form-control-sm" id="recipient-wbc" value="'+(history.wbc == null ? " " : history.wbc )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-lym" class="col-form-label">%Lym</label>'+
-							'<input type="text" name="lym" class="form-control form-control-sm" id="recipient-lym" value="'+(history.lym == null ? " " : history.lym )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-gra" class="col-form-label">GRA%</label>'+
-							'<input type="text" name="gra" class="form-control form-control-sm" id="gra" value="'+(history.gra == null ? " " : history.gra )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-rbc" class="col-form-label">RBC</label>'+
-							'<input type="text" name="rbc" class="form-control form-control-sm" id="rbc" value="'+(history.rbc == null ? " " : history.rbc )+'">'+
-						'</div>'+
-					'</div>'+
-    				'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="_recipient-hb" class="col-form-label">HGB</label>'+
-							'<input type="text" name="hb" class="form-control form-control-sm" id="_recipient-hb" value="'+(history.hb == null ? " " : history.hb )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-hct" class="col-form-label">HCT</label>'+
-							'<input type="text" name="hct" class="form-control form-control-sm" id="hct" value="'+(history.hct == null ? " " : history.hct )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-mcv" class="col-form-label">MCV</label>'+
-							'<input type="text" name="mcv" class="form-control form-control-sm" id="mcv" value="'+(history.mcv == null ? " " : history.mcv )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-mch" class="col-form-label">MCH</label>'+
-							'<input type="text" name="mch" class="form-control form-control-sm" id="mch" value="'+(history.mch == null ? " " : history.mch )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-mchc" class="col-form-label">MCHC</label>'+
-							'<input type="text" name="mchc" class="form-control form-control-sm" id="mchc" value="'+(history.mchc == null ? " " : history.mchc )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-plt" class="col-form-label">PLT</label>'+
-							'<input type="text" name="plt" class="form-control form-control-sm" id="plt" value="'+(history.plt == null ? " " : history.plt )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="_recipient-esr" class="col-form-label">ESR</label>'+
-							'<input type="text" name="esr" class="form-control form-control-sm" id="_recipient-esr" value="'+(history.esr == null ? " " : history.esr )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-neu" class="col-form-label">%Neu</label>'+
-							'<input type="text" name="neu" class="form-control form-control-sm" id="recipient-neu" value="'+(history.neu == null ? " " : history.neu )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-chol" class="col-form-label">Chol</label>'+
-							'<input type="text" name="chol" class="form-control form-control-sm" id="chol" value="'+(history.chol == null ? " " : history.chol )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-tg" class="col-form-label">TG</label>'+
-							'<input type="text" name="tg" class="form-control form-control-sm" id="recipient-tg" value="'+(history.tg == null ? " " : history.tg )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-glucf" class="col-form-label">Gluc-f</label>'+
-							'<input type="text" name="glucf" class="form-control form-control-sm" id="glucf" value="'+(history.glucf == null ? " " : history.glucf )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-glucr" class="col-form-label">Gluc-r</label>'+
-							'<input type="text" name="glucr" class="form-control form-control-sm" id="glucr" value="'+(history.glucr == null ? " " : history.glucr )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-gluc2hr" class="col-form-label">Gluc-2hr</label>'+
-							'<input type="text" name="gluc2hr" class="form-control form-control-sm" id="gluc2hr" value="'+(history.gluc2hr == null ? " " : history.gluc2hr )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-creat" class="col-form-label">Creat</label>'+
-							'<input type="text" name="creat" class="form-control form-control-sm" id="creat" value="'+(history.creat == null ? " " : history.creat )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-ua" class="col-form-label">UA</label>'+
-							'<input type="text" name="ua" class="form-control form-control-sm" id="ua" value="'+(history.ua == null ? " " : history.ua )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-crp" class="col-form-label">CRP</label>'+
-							'<input type="text" name="crp" class="form-control form-control-sm" id="recipient-crp" value="'+(history.crp == null ? " " : history.crp )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-ra" class="col-form-label">RA</label>'+
-							'<input type="text" name="ra" class="form-control form-control-sm" id="ra" value="'+(history.ra == null ? " " : history.ra )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-ugl" class="col-form-label">U-gl</label>'+
-							'<input type="text" name="ugl" class="form-control form-control-sm" id="ugl" value="'+(history.ugl == null ? " " : history.ugl )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-upr" class="col-form-label">U-pr</label>'+
-							'<input type="text" name="upr" class="form-control form-control-sm" id="upr" value="'+(history.upr == null ? " " : history.upr )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-uery" class="col-form-label">U-ery</label>'+
-							'<input type="text" name="uery" class="form-control form-control-sm" id="uery" value="'+(history.uery == null ? " " : history.uery )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-uleu" class="col-form-label">U-leu</label>'+
-							'<input type="text" name="uleu" class="form-control form-control-sm" id="uleu" value="'+(history.uleu == null ? " " : history.uleu )+'">'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-ecg" class="col-form-label">ECG</label>'+
-							'<select name="ecg" class="form-control form-control-sm w-100" id="ecg">'+
-								'<option selected="false" value="">N/A</option>'+
-								'<option value="WNL" '+(history.ecg == "WNL" ? "selected" : "") +'>WNL</option>'+
-								'<option value="AMI" '+(history.ecg == "AMI" ? "selected" : "") +'>AMI</option>'+
-								'<option value="IHD" '+(history.ecg == "IHD" ? "selected" : "") +'>IHD</option>'+
-								'<option value="LVH" '+(history.ecg == "LVH" ? "selected" : "") +'>LVH</option>'+
-								'<option value="Arrhythmia" '+(history.ecg == "Arrhythmia" ? "selected" : "") +'>Arrhythmia</option>'+
-								'<option value="Others" '+ (history.ecg == "Others" ? "selected" : "")+'>Others </option>'+
-							'</select>'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-usg" class="col-form-label">USG</label>'+
-							'<select name="usg" class="form-control form-control-sm w-100" id="usg">'+
-								'<option selected="false" value="">N/A</option>'+
-								'<option value="Normal" '+(history.usg == "Normal" ? "selected" : "") +'>Normal</option>'+
-								'<option value="Pregnancy" '+(history.usg == "Pregnancy" ? "selected" : "") +'>Pregnancy</option>'+
-								'<option value="Abnormal" '+(history.usg == "Abnormal" ? "selected" : "") +'>Abnormal</option>'+
-							'</select>'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-4">'+
-						'<div class="form-group">'+
-							'<label for="recipient-cxr" class="col-form-label">CXR</label>'+
-							'<select name="cxr" class="form-control form-control-sm w-100" id="cxr">'+
-								'<option selected="false" value="">N/A</option>'+
-								'<option value="Normal" '+(history.cxr == "Normal" ? "selected" : "") +'>Normal</option>'+
-								'<option value="RTI" '+(history.cxr == "RTI" ? "selected" : "") +'>RTI</option>'+
-								'<option value="Cardiomegaly" '+(history.cxr == "Cardiomegaly" ? "selected" : "") +'>Cardiomegaly</option>'+
-								'<option value="TB" '+(history.cxr == "TB" ? "selected" : "")+'>TB</option>'+
-								'<option value="Others" '+(history.cxr == "Others" ? "selected" : "") +'>Others </option>'+
-							'</select>'+
-						'</div>'+
-					'</div>';
-				$("#reports").append(reports);
-    		}
-
-    	});
-    }
 
 	$(function() {
 		$( "#start" ).datepicker({
@@ -459,12 +206,6 @@ select.form-control:not([size]):not([multiple]) {
 			dateFormat: 'dd-mm-yy'
 		});
 	});
-	$(document).keypress(
-	  function(event){
-	    if (event.which == '13') {
-	    	$("#reportForEdit").modal('show');
-	      	event.preventDefault();
-	    }
-	});
+
 </script>
 @endpush
