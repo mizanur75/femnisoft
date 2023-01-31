@@ -122,7 +122,7 @@ class ServiceController extends Controller
             }
             $image2->move('assets/images/image2',$image2name);
         }else{
-            $image2name = 'default.png';
+            $image2name = $service->image2;
         }
 
         $service->user_id = Auth::user()->id;
