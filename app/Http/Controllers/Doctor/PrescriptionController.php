@@ -196,7 +196,7 @@ class PrescriptionController extends Controller
         $eating_times = EatingTime::all();
         $qtys = Qty::all();
         $qty_types = QtyType::all();
-        $advices = Advi::get();
+        $advices = Advi::where('status',1)->get();
         $history_id = DB::table('histories')->where('request_id',$id)->where('status',0)->first();
 
         if(empty($history_id)){
@@ -275,7 +275,7 @@ class PrescriptionController extends Controller
     }
     public function edit_prescription($id){
         $doctors = Doctor::where('status',1)->get();
-        $advices = Advi::get();
+        $advices = Advi::where('status',1)->get();
 
         $appoint = DB::table('patient_requests as pare')
                     ->join('patients as p','p.id','=','pare.patient_id')
