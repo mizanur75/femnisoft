@@ -80,6 +80,12 @@ select.form-control:not([size]):not([multiple]) {
 {{--								<a href="{{route('doctor.web-blog.show',$blog->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}
         						<a href="{{route('doctor.web-blog.edit',$blog->id)}}" class="btn btn-padding btn-sm btn-primary"><i class="fa fa-edit"></i>
         						</a>
+        						<form action="{{route('doctor.web-blog.destroy',$blog->id)}}" method="post" onsubmit="return confirm('Are you sure!')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-padding btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
+
 							</td>
 						</tr>
 						@endforeach
