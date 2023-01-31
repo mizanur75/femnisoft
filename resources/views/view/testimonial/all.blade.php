@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','All Testimonial')
+@section('title','Review')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -74,8 +74,8 @@ select.form-control:not([size]):not([multiple]) {
 						<tr>
 							<td>{{$loop->index + 1}}</td>
 							<td><img src="{{asset('assets/images/testimonials/'.$testimonial->photo)}}" style="width: 50px;" alt=""></td>
-							<td>{{$testimonial->name}}</td>
-							<td>{{$testimonial->description}}</td>
+							<td>{{$testimonial->title}}</td>
+							<td>{!! $testimonial->details !!}</td>
 							<td class="text-center">
 {{--								<a href="{{route('doctor.web-testimonial.show',$testimonial->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}
         						<a href="{{route('doctor.web-testimonial.edit',$testimonial->id)}}" class="btn btn-padding btn-sm btn-primary"><i class="fa fa-edit"></i>

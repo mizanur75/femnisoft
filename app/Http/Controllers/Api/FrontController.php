@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Model\ApptTime;
 use App\Model\Blog;
 use App\Model\Service;
-use App\Model\Testimonial;
+use App\Model\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -58,7 +58,7 @@ class FrontController extends Controller
         return response()->json($blog)->header("Access-Control-Allow-Origin",  "*");
     }
     public function testimonial(){
-        $blog = Testimonial::orderBy('id','DESC')->take(10)->get();
+        $blog = Review::orderBy('id','DESC')->take(10)->get();
         return response()->json($blog)->header("Access-Control-Allow-Origin",  "*");
     }
 }

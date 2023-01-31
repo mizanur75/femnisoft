@@ -32,23 +32,23 @@
 				@method('PUT')
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<label for="patient-name">name</label> <span class="text-danger">*</span>
-						<input type="text" name="name" class="form-control form-control-sm" placeholder="Title" value="{{$testimonial->name}}" required>
+						<label for="patient-name">Name</label> <span class="text-danger">*</span>
+						<input type="text" name="name" class="form-control form-control-sm" placeholder="Title" value="{{$testimonial->title}}" required>
 					</div>
 
                     <div class="form-group col-md-12">
-                        <label for="exampleFormControlTextarea1">Description</label> <span class="text-danger">*</span>
-                        <textarea name="description" id="nic-edit" class="form-control" cols="10" rows="3">{!! $testimonial->description !!}</textarea>
+                        <label for="exampleFormControlTextarea1">Speech</label> <span class="text-danger">*</span>
+                        <textarea name="description" id="nic-edit" class="form-control" cols="10" rows="3">{!! $testimonial->details !!}</textarea>
                     </div>
 
 
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-12">
 						<div class="form-row">
-							<div class="form-group col-md-11" id="uploadImage">
+							<div class="form-group col-md-12" id="uploadImage">
 								<input type="file" name="photo">
 							</div>
 
-							<div class="form-group col-md-10" id="webcamImage">
+							<div class="form-group col-md-12" id="webcamImage">
 								<div class="row">
 									<div class="form-group col-md-5">
 										<label>Picture</label>
@@ -60,7 +60,7 @@
 						</div>
 					</div>
 
-					<div class="form-check col-md-6 mb-2">
+					<div class="form-check col-md-12 mb-2">
 						<div class="text-left">
 							<div class="custom-control custom-checkbox">
 								<input class="custom-control-input" type="checkbox" id="ex-check-2" name="status" value="1"  required {{$testimonial->status == 1 ? 'checked':''}}>
@@ -68,7 +68,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group col-md-6 mb-3">
+					<div class="form-group col-md-4 mb-3">
 						<button type="submit" class="btn btn-primary btn-block"><i class="fa fa-refresh"></i> Update Now</button>
 					</div>
 				</div>

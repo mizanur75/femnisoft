@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Add New Testimonial')
+@section('title','Review')
 
 @push('css')
 	<link rel="stylesheet" href="{{asset('assets/css/mystyle.css')}}">
@@ -38,7 +38,7 @@
 					</div>
 
 					<div class="form-group col-md-12">
-						<label for="exampleFormControlTextarea1">Description</label> <span class="text-danger">*</span>
+						<label for="exampleFormControlTextarea1">Speech</label> <span class="text-danger">*</span>
 						<textarea name="description" id="nic-edit" class="form-control" cols="10" rows="3">{{old('description')}}</textarea>
 					</div>
 					<div class="form-group col-md-6">

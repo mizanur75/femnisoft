@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Doctor;
 
-use App\Model\Testimonial;
+use App\Model\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +12,7 @@ class TestimonialController extends Controller
 {
     public function index()
     {
-        $testimonials = Testimonial::orderBy('id','DESC')->get();
+        $testimonials = Review::orderBy('id','DESC')->get();
         return view('view.testimonial.all', compact('testimonials'));
     }
 
@@ -41,14 +41,14 @@ class TestimonialController extends Controller
             $imagename = '';
         }
 
-        $testimonial = new Testimonial();
-        $testimonial->name = $request->name;
-        $testimonial->description = $request->description;
+        $testimonial = new Review();
+        $testimonial->title = $request->name;
+        $testimonial->details = $request->description;
         $testimonial->photo = $imagename;
         $testimonial->status = $request->status;
         $testimonial->save();
 
-        return redirect()->route('doctor.web-testimonial.index')->with('success','Testimonial Successfully created!');
+        return redirect()->route('doctor.web-testimonial.index')->with('success','Review Successfully created!');
 
     }
 
@@ -59,7 +59,7 @@ class TestimonialController extends Controller
 
     public function edit($id)
     {
-        $testimonial = Testimonial::findOrFail($id);
+        $testimonial = Review::findOrFail($id);
         return view('view.testimonial.edit', compact('testimonial'));
     }
 
@@ -70,7 +70,7 @@ class TestimonialController extends Controller
             'description' => 'required'
         ]);
         $slug = Str::slug($request->name);
-        $testimonial = Testimonial::findOrFail($id);
+        $testimonial = Review::findOrFail($id);
         $image = $request->file('photo');
         if (isset($image)){
             $imagename = $slug.'-'.uniqid().'.'.$image->getClientOriginalExtension();
@@ -87,13 +87,13 @@ class TestimonialController extends Controller
         }else{
             $imagename = $testimonial->photo;
         }
-        $testimonial->name = $request->name;
-        $testimonial->description = $request->description;
+        $testimonial->title = $request->name;
+        $testimonial->details = $request->description;
         $testimonial->photo = $imagename;
         $testimonial->status = $request->status;
         $testimonial->save();
 
-        return redirect()->route('doctor.web-testimonial.index')->with('success','Testimonial Successfully Updated!');
+        return redirect()->route('doctor.web-testimonial.index')->with('success','Review Successfully Updated!');
     }
     public function destroy($id)
     {
