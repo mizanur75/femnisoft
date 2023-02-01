@@ -97,6 +97,8 @@ class TestimonialController extends Controller
     }
     public function destroy($id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $review->delete();
+        return back()->with('success','Deleted success');
     }
 }
