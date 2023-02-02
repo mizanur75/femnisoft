@@ -149,7 +149,7 @@ hr {
 					<div class="col-sm-6 col-md-6 mt-3">
 						<h6 class="color-black"><b>Electronic Signature</b></h6>
 						<hr>
-						<img src="{{asset('images/signature/'.$info->signature)}}">
+						<img src="{{asset('images/signature/'.$info->signature)}}" style="height: 70px;">
 						<h5 class="font-weight-bold color-black" style="margin-bottom: 0px;">{{$info->dname}}</h5>
 						<span class="color-black">{{$info->education}}</span><br>
 						<span class="color-black">{{$info->spc}}</span><br>
