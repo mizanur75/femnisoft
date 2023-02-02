@@ -121,7 +121,7 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                         aria-expanded="false"><i class="fa fa-tasks"></i> Manage</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item {{Request::is('doctor/advice*')?'activated':''}}" href="{{route('doctor.advice.index')}}">Advice</a>
+                        <a class="dropdown-item {{Request::is('doctor/advice*')?'activated':''}}" href="{{route('doctor.advice.index')}}">Suggestions</a>
                     </div>
                 </li>
                 <!-- <li class="nav-item dropdown">
