@@ -145,6 +145,7 @@
                         <a class="dropdown-item" href="{{route('doctor.web-blog.index')}}">Blog</a>
                         <a class="dropdown-item" href="{{route('doctor.web-service.index')}}">Services</a>
                         <a class="dropdown-item" href="{{route('doctor.web-testimonial.index')}}">Testimonials</a>
+                        <a class="dropdown-item" href="{{route('doctor.web-contact.index')}}">Contacts</a>
                     </div>
                 </li>
             </ul>

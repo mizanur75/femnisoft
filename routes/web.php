@@ -136,6 +136,7 @@ Route::group(['as'=>'doctor.','prefix' => 'doctor','namespace'=>'Doctor','middle
     Route::resource('web-blog','BlogController');
     Route::resource('web-service','ServiceController');
     Route::resource('web-testimonial','TestimonialController');
+    Route::resource('web-contact','ContactController');
 
 });
 

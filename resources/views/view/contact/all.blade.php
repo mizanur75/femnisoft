@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Testimonials')
+@section('title','Contact')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -17,15 +17,15 @@ select.form-control:not([size]):not([multiple]) {
 @php($auth = Auth::user()->role->name)
 <div class="row">
 	<!-- Widget Item -->
-	<div class="col-md-12">
-        <div class="widget-area-2 proclinic-box-shadow text-right pt-2">
-        	<div class="row">
-        		<div class="col-md-1 mt-2">
-		            <a href="{{route('doctor.web-testimonial.create')}}" class="btn btn-padding btn-sm btn-success"><i class="fa fa-plus"></i> Add New</a>
-		        </div>
-        	</div>
-        </div>
-    </div>
+	{{--<div class="col-md-12">--}}
+        {{--<div class="widget-area-2 proclinic-box-shadow text-right pt-2">--}}
+        	{{--<div class="row">--}}
+        		{{--<div class="col-md-1 mt-2">--}}
+		            {{--<a href="{{route('doctor.web-contact.create')}}" class="btn btn-padding btn-sm btn-success"><i class="fa fa-plus"></i> Add New</a>--}}
+		        {{--</div>--}}
+        	{{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 	<!-- Widget Item -->
 	<div class="col-md-12">
 		<div class="widget-area-2 proclinic-box-shadow">
@@ -62,25 +62,22 @@ select.form-control:not([size]):not([multiple]) {
 					<thead class="text-center">
 						<tr>
 							<th>#SL</th>
-							<th>Image</th>
 							<th>Name</th>
-							<th>Speech</th>
+                            <th>Email</th>
+                            <th>Message(s)</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@if($testimonials)
-						@foreach($testimonials as $testimonial)
+						@if($contacts)
+						@foreach($contacts as $contact)
 						<tr>
 							<td>{{$loop->index + 1}}</td>
-							<td><img src="{{asset('assets/images/testimonials/'.$testimonial->photo)}}" style="width: 50px;" alt=""></td>
-							<td>{{$testimonial->title}}</td>
-							<td>{!! $testimonial->details !!}</td>
+							<td>{{$contact->name}}</td>
+							<td>{{$contact->email}}</td>
+							<td>{!! $contact->message !!}</td>
 							<td class="text-center">
-{{--								<a href="{{route('doctor.web-testimonial.show',$testimonial->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}
-        						<a href="{{route('doctor.web-testimonial.edit',$testimonial->id)}}" class="btn btn-padding btn-sm btn-primary"><i class="fa fa-edit"></i>
-        						</a>
-        						<form action="{{route('doctor.web-testimonial.destroy',$testimonial->id)}}" method="post" onsubmit="return confirm('Are you sure!')">
+        						<form action="{{route('doctor.web-contact.destroy',$contact->id)}}" method="post" onsubmit="return confirm('Are you sure!')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-padding btn-sm btn-danger"><i class="fa fa-trash"></i></button>
