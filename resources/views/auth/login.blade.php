@@ -158,11 +158,11 @@
         <div class="container">
             <div class="card card-login mx-auto text-center bg-dark">
                 <div class="card-header mx-auto bg-dark">
-                    <div style="margin-top: -22px;"> 
-                        <img src="{{asset('assets/images/logo-dark.png')}}" class="image-logo" alt="Logo"> 
+                    <div style="margin-top: -22px;">
+                        <img src="{{asset('assets/images/logo-dark.png')}}" class="image-logo" alt="Logo">
                         <!-- <h1 class="ems">EMS</h1> -->
                     </div>
-                    <div class="logo-title"> EASY DOCTOR </div>
+                    <div class="logo-title"> Femnivision </div>
 
                 </div>
                 <div class="card-body">
@@ -215,7 +215,7 @@
 
         if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
         return false;
-        }      
+        }
     }
     function goback(){
         document.getElementById("goback").href = "";

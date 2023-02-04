@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Review')
+@section('title','Testimonial')
 
 @push('css')
 <link rel="stylesheet" href="{{asset('assets/datatable/dataTables.bootstrap4.min.css')}}">
@@ -48,7 +48,7 @@ select.form-control:not([size]):not([multiple]) {
 				</div>
 			@endforeach
 		@endif
-		
+
         @if(Session::has('error'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>{{ Session::get('error') }}</strong>
@@ -78,7 +78,7 @@ select.form-control:not([size]):not([multiple]) {
 							<td>{!! $testimonial->details !!}</td>
 							<td class="text-center">
 {{--								<a href="{{route('doctor.web-testimonial.show',$testimonial->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}
-        						<a href="{{route('doctor.web-testimonial.edit',$testimonial->id)}}" class="btn btn-padding btn-sm btn-primary"><i class="fa fa-edit"></i>
+        						<a href="{{route('doctor.web-testimonial.edit',$testimonial->id)}}" class="btn btn-padding btn-sm btn-info"><i class="fa fa-edit"></i>
         						</a>
         						<form action="{{route('doctor.web-testimonial.destroy',$testimonial->id)}}" method="post" onsubmit="return confirm('Are you sure!')">
                                     @csrf

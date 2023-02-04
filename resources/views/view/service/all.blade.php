@@ -48,7 +48,7 @@ select.form-control:not([size]):not([multiple]) {
 				</div>
 			@endforeach
 		@endif
-		
+
         @if(Session::has('error'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>{{ Session::get('error') }}</strong>
@@ -80,7 +80,7 @@ select.form-control:not([size]):not([multiple]) {
 							{{--<td>Status</td>--}}
 							<td class="text-center">
 {{--								<a href="{{route('doctor.web-service.show',$service->id)}}" class="btn btn-padding btn-sm btn-info" target="_blank"><i class="fa fa-eye"></i></a>--}}
-        						<a href="{{route('doctor.web-service.edit',$service->id)}}" class="btn btn-padding btn-sm btn-primary"><i class="fa fa-edit"></i>
+        						<a href="{{route('doctor.web-service.edit',$service->id)}}" class="btn btn-padding btn-sm btn-info"><i class="fa fa-edit"></i>
         						</a>
         						<form action="{{route('doctor.web-service.destroy',$service->id)}}" method="post" onsubmit="return confirm('Are you sure!')">
                                     @csrf
