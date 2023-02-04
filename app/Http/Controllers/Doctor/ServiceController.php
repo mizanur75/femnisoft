@@ -27,7 +27,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'category_id' => 'required',
+//            'category_id' => 'required',
             'title' => 'required',
             'sub_title' => 'required',
             'description' => 'required',
@@ -89,7 +89,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'category_id' => 'required',
+//            'category_id' => 'required',
             'title' => 'required',
             'sub_title' => 'required',
             'description' => 'required'

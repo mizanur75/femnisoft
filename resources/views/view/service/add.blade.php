@@ -33,15 +33,15 @@
 				@csrf
 				<div class="form-row">
 
-                    <div class="form-group col-md-12">
-                        <label for="category">Category</label> <span class="text-danger">*</span>
-                        <select class="form-control form-control-sm" name="category_id" id="category" required>
-                            <option selected="false" disabled>Select Category</option>
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}" {{$category->id == old('category_id') ? 'selected':''}}>{{$category->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    {{--<div class="form-group col-md-12">--}}
+                        {{--<label for="category">Category</label> <span class="text-danger">*</span>--}}
+                        {{--<select class="form-control form-control-sm" name="category_id" id="category" required>--}}
+                            {{--<option selected="false" disabled>Select Category</option>--}}
+                            {{--@foreach($categories as $category)--}}
+                                {{--<option value="{{$category->id}}" {{$category->id == old('category_id') ? 'selected':''}}>{{$category->name}}</option>--}}
+                            {{--@endforeach--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
 					<div class="form-group col-md-12">
 						<label for="patient-name">Title</label> <span class="text-danger">*</span>
 						<input type="text" value="{{old('title')}}" name="title" class="form-control form-control-sm" placeholder="Title" id="patient-name" required>

@@ -26,7 +26,7 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'category_id' => 'required',
+//            'category_id' => 'required',
             'title' => 'required',
             'description' => 'required',
             'photo' => 'required'
@@ -73,7 +73,7 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'category_id' => 'required',
+//            'category_id' => 'required',
             'title' => 'required',
             'description' => 'required'
         ]);

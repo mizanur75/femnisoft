@@ -31,15 +31,15 @@
 				@csrf
 				@method('PUT')
 				<div class="form-row">
-                    <div class="form-group col-md-12" id="other_width">
-                        <label for="category_id">Category</label> <span class="text-danger">*</span>
-                        <select name="category_id" class="form-control" id="category_id">
-                            <option selected="false" disabled>--- Select Category ---</option>
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}" {{$service->category_id == $category->id ? 'selected':''}}>{{$category->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    {{--<div class="form-group col-md-12" id="other_width">--}}
+                        {{--<label for="category_id">Category</label> <span class="text-danger">*</span>--}}
+                        {{--<select name="category_id" class="form-control" id="category_id">--}}
+                            {{--<option selected="false" disabled>--- Select Category ---</option>--}}
+                            {{--@foreach($categories as $category)--}}
+                                {{--<option value="{{$category->id}}" {{$service->category_id == $category->id ? 'selected':''}}>{{$category->name}}</option>--}}
+                            {{--@endforeach--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
 					<div class="form-group col-md-12">
 						<label for="patient-name">Title</label> <span class="text-danger">*</span>
 						<input type="text" name="title" class="form-control form-control-sm" placeholder="Title" value="{{$service->title}}" required>

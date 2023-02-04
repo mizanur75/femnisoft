@@ -81,11 +81,14 @@ class PatientinfoController extends Controller
     public function sendrequest(Request $request, $doctor_id, $patient_id){
         $appoint_date = $request->appoint_date == null ? date('d-m-Y', strtotime(now())) : $request->appoint_date;
         $check = PatientRequest::where('doctor_id',$doctor_id)->where('patient_id',$patient_id)->where('status',0)->where('is_delete',0)->first();
+//        $patient_info = PatientInfo::where('patient_id',$patient_id)->select('id')->latest()->first();
         if(empty($check) === true){
+            // DB::transaction(function() use($doctor_id,$patient_id,$appoint_date,$patient_info){
                 $prequest = new PatientRequest();
                 $prequest->user_id = Auth::user()->id;
                 $prequest->doctor_id = $doctor_id;
                 $prequest->patient_id = $patient_id;
+//                $prequest->patient_info_id = $patient_info->id;
                 $prequest->appoint_date = $appoint_date;
                 $prequest->save();
 
@@ -106,7 +109,7 @@ class PatientinfoController extends Controller
 
         }elseif(!empty($check) && $check->accept == 1 && $check->done == 1){
 
-            toastr('Doctor Advice Some tests! Please done it.','warning');
+            toastr('Advice Some tests! Please done it.','warning');
             return back();
 
         }else{

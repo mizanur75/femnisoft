@@ -34,26 +34,26 @@
 				<div class="form-row">
 					<div class="form-group col-md-7">
 						<label for="patient-name">Name</label> <span class="text-danger">*</span>
-						<input type="text" maxlength="20" name="name" class="form-control form-control-sm" placeholder="Full Name" id="patient-name" required>
+						<input type="text" maxlength="20" name="name" value="{{old('name')}}" class="form-control form-control-sm" placeholder="Full Name" id="patient-name" required>
 					</div>
 					<div class="form-group col-md-5">
 						<label for="dob">Date of Birth</label> <span class="text-danger">*</span>
-						<input type="text" autocomplete="off" id="dob" name="age" class="form-control form-control-sm" placeholder="Enter Date of Birth" required>
+						<input type="text" autocomplete="off" id="dob" name="age" value="{{old('age')}}" class="form-control form-control-sm" placeholder="Enter Date of Birth" required>
 					</div>
 					<div class="form-group col-md-3">
 						<label for="gender">Gender</label> <span class="text-danger">*</span>
 						<select class="form-control form-control-sm" name="gender" id="gender" required>
 							<option selected="false" disabled>Select Gender</option>
-							<option value="0">Male</option>
-							<option value="1">Female</option>
+							<option value="0" {{old('gender') == 0 ? 'selected':''}}>Male</option>
+							<option value="1" {{old('gender') == 1 ? 'selected':''}}>Female</option>
 						</select>
 					</div>
 					<div class="form-group col-md-3">
 						<label for="gender">Marital Status</label>
 						<select class="form-control form-control-sm" name="marital_status" id="marital_status" required>
 							<option selected="false" disabled>Select Marital Status</option>
-							<option value="0">Single</option>
-							<option value="1">Married</option>
+							<option value="0" {{old('marital_status') == 0 ? 'selected':''}}>Single</option>
+							<option value="1" {{old('marital_status') == 1 ? 'selected':''}}>Married</option>
 						</select>
 					</div>
 					<!--
@@ -63,14 +63,14 @@
 					</div> -->
 					<div class="form-group col-md-6" id="other_width">
 						<label for="exampleFormControlTextarea1">Address</label> <span class="text-danger">*</span>
-						<input type="text" name="address" id="address_id" class="form-control form-control-sm">
+						<input type="text" name="address" value="{{old('address')}}" id="address_id" class="form-control form-control-sm">
 					</div>
 
 					<div class="form-group col-md-6">
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="phone">Phone</label> <span class="text-danger">*</span>
-								<input type="text" name="phone" placeholder="Phone" class="form-control form-control-sm" id="phone" required>
+								<input type="text" name="phone" value="{{old('phone')}}" placeholder="Phone" class="form-control form-control-sm" id="phone" required>
 							</div>
 							<div class="form-group col-md-12">
 								<label for="blood_group">Blood Group</label>
