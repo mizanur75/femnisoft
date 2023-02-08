@@ -80,7 +80,7 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                         aria-expanded="false"><i class="fa fa-stethoscope"></i> Appointments
                         @if($all_appoint > 0)
-                        <span class="badge badge-success" style="border-radius: 50%;">{{$all_appoint}}</span>
+                        <span class="badge badge-danger" style="border-radius: 50%;">{{$all_appoint}}</span>
                         @endif
 
                     </a>
@@ -93,7 +93,7 @@
                         <a class="dropdown-item" href="{{ route('doctor.appoint.index') }}">
                             All Appoint
                             @if($all_appoint > 0)
-                            <span class="badge badge-success" style="border-radius: 50%;">{{$all_appoint}}</span>
+                            <span class="badge badge-danger" style="border-radius: 50%;">{{$all_appoint}}</span>
                             @endif
                         </a>
                     </div>
@@ -132,7 +132,7 @@
                         @php($online_appoint = \DB::table('appt_times')->where('status',0)->where('is_declined',0)->count())
                         <i class="fa fa-stethoscope"></i> Online Appointment
                         @if($online_appoint > 0)
-                        <span class="badge badge-success" style="border-radius: 50%;">{{$online_appoint}}</span>
+                        <span class="badge badge-danger" style="border-radius: 50%;">{{$online_appoint}}</span>
                         @endif
                     </a>
                 </li>
