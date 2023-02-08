@@ -69,7 +69,7 @@
                         color: #28a745;
                         background-color: transparent;
                         background-clip: padding-box;
-                        border: 1px solid #28a745;
+                        border: 1px solid #5269d0;
                         border-radius: 0;
                         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
                     }
@@ -95,7 +95,7 @@
                         background-color: #ffffff !important;
                     }
                     .input-group-prepend span{
-                        background-color: #ef4e23;
+                        background-color: #5269d0;
                     }
                     .image-logo{
                         width: 36%;
@@ -158,11 +158,11 @@
         <div class="container">
             <div class="card card-login mx-auto text-center bg-dark">
                 <div class="card-header mx-auto bg-dark">
-                    <div style="margin-top: -22px;"> 
-                        <img src="{{asset('assets/images/logo-dark.png')}}" class="image-logo" alt="Logo"> 
+                    <div>
+                        <img src="{{asset('assets/images/logo-dark.png')}}" class="img-fluid img-responsive" alt="Logo">
                         <!-- <h1 class="ems">EMS</h1> -->
                     </div>
-                    <div class="logo-title"> EASY DOCTOR </div>
+                    {{--<div class="logo-title"> EASY DOCTOR </div>--}}
 
                 </div>
                 <div class="card-body">
@@ -187,7 +187,7 @@
                             </span>
                         @endif
                         <div class="form-group">
-                            <input type="submit" name="btn" value="Login" class="btn btn-outline-danger float-right login_btn" style="background-color: #ef4e23 !important;">
+                            <input type="submit" name="btn" value="Login" class="btn btn-danger float-right login_btn" style="background-color: #4d5afb !important; border-color: #4d5afb;">
                         </div>
                         <div class="row">
                             <span class="power">Powered by <a href="https://primex-bd.com" target="_blank">Primex Information System Ltd</a></span>
