@@ -164,6 +164,7 @@
                     </div>
                     {{--<div class="logo-title"> EASY DOCTOR </div>--}}
 
+
                 </div>
                 <div class="card-body">
                     <form action="{{ route('login') }}" method="post">
@@ -215,7 +216,7 @@
 
         if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
         return false;
-        }      
+        }
     }
     function goback(){
         document.getElementById("goback").href = "";

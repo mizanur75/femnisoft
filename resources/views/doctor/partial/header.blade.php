@@ -130,7 +130,7 @@
                 <li class="nav-item dropdown {{Request::is('doctor/get-appoint*')?'active':''}}">
                     <a class="nav-link" href="{{route('doctor.get_appoint')}}">
                         @php($online_appoint = \DB::table('appt_times')->where('status',0)->where('is_declined',0)->count())
-                        <i class="fa fa-stethoscope"></i> Online Appointment 
+                        <i class="fa fa-stethoscope"></i> Online Appointment
                         @if($online_appoint > 0)
                         <span class="badge badge-success" style="border-radius: 50%;">{{$online_appoint}}</span>
                         @endif
@@ -141,7 +141,7 @@
                 <li class="nav-item dropdown {{Request::is('doctor/web*')?'active':''}}">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> Website</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{route('doctor.web-category.index')}}">Category</a>
+{{--                        <a class="dropdown-item" href="{{route('doctor.web-category.index')}}">Category</a>--}}
                         <a class="dropdown-item" href="{{route('doctor.web-blog.index')}}">Blog</a>
                         <a class="dropdown-item" href="{{route('doctor.web-service.index')}}">Services</a>
                         <a class="dropdown-item" href="{{route('doctor.web-testimonial.index')}}">Testimonials</a>
