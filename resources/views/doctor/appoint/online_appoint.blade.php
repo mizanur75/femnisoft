@@ -89,7 +89,7 @@ select.form-control:not([size]):not([multiple]) {
 							<td class="text-center">{{$appoint->phone}}</td>
 							<td class="text-center">{{date('d M Y', strtotime($appoint->created_at))}}</td>
 							<td class="text-center">{{date('d M Y', strtotime($appoint->dates))}}</td>
-							<td class="text-center">{{$appoint->times}}</td>
+							<td class="text-center">{{date('h:i A', strtotime($appoint->times))}}</td>
 							<td class="text-center">
 								@if($appoint->is_accept == null)
 									<a href="{{route('doctor.accept',$appoint->id)}}" class="btn btn-sm btn-padding btn-outline-success" onclick="return confirm('Are you sure!')">
