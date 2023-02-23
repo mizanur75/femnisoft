@@ -160,6 +160,9 @@ $all = Auth::user()->role->name == 'Doctor' ? route('doctor.patient.index') : ro
 <script src="{{asset('datetime_picker/jquery-ui.js')}}"></script>
 
 <script>
+	$("#dob").keyup(function(){
+		this.value = '{{$patient->age}}';
+	})
 	$(function(){
 		$("#selectOptionForwebcamImage").attr('checked', true);
 		$("#uploadImage").addClass('d-none');
