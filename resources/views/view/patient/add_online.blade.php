@@ -151,6 +151,9 @@
 
 <script src="{{asset('datetime_picker/jquery-ui.js')}}"></script>
 <script>
+	$("#dob").keyup(function(){
+		this.value = '';
+	})
 	$(function(){
 		$("#address_id").autocomplete({
 			source: function(request, response){
